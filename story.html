@@ -316,6 +316,8 @@ a {
 
 
 
+
+
 </style><script role="script" id="twine-user-script" type="text/twine-javascript">//Invoke scripts like this:
 //<img src="data:image/gif;base64,R0lGODlhAQABAAAAACwAAAAAAQABAAA=" style="display: none;" onload="holo.setBg(0.8); holo.setTextDark();">
 
@@ -1146,6 +1148,8 @@ window.magData = /** start copy paste */ {
 
 
 
+
+
 </script><tw-passagedata pid="1" name="Start" tags="" position="460,257">&lt;script&gt;sounds.thememusic.play(); sounds.thememusic.fade(0, 1, 1000); holo.setStyle(&#39;space1&#39;);&lt;/script&gt;You&#39;re in a room with a window,
 and light is [streaming through the window]&lt;c2|(click: ?c2)[,
 like light reflected on water(link: &quot;.&quot;)[.
@@ -1523,17 +1527,124 @@ You wipe your eyes and pack some things and, outside, [get on a bicycle]&lt;vehi
 }
 ]
 </tw-passagedata>
-<tw-passagedata pid="31" name="yes2" tags="" position="1749,2116">==&gt;&lt;==
-#THE END
+<tw-passagedata pid="31" name="yes2" tags="" position="1749,2116">{
+&lt;div id=&quot;fade&quot;&gt;
+&lt;img src=&quot;http://seerscatalogue.github.io/seers/animations/plant0.png&quot; class=&quot;anim bottom&quot;&gt;
+&lt;img src=&quot;http://seerscatalogue.github.io/seers/animations/plant1.png&quot; class=&quot;anim top&quot;&gt;
+&lt;/div&gt;
+}
+(live: 6s)[&lt;span onclick=&quot;sounds.thememusic.stop();&quot;&gt;[[Start again.-&gt;Start]]&lt;/span&gt;(stop:)]
 
-(live: 4s)[&lt;span onclick=&quot;sounds.thememusic.stop();&quot;&gt;[[Start again.-&gt;Start]]&lt;/span&gt;(stop:)]</tw-passagedata>
+&lt;style&gt;
+#fade {
+  position:relative;
+  width: auto;
+  height: 500px;
+  margin: 0 auto;
+}
+
+#fade img {
+  position:absolute;
+  left:0;
+}
+
+#fade img.anim {
+    animation: 5s 1 ease-in-out forwards;
+}
+
+#fade img.bottom {
+    animation-name: bottom;
+}
+
+#fade img.top {
+    animation-name: top;
+}
+
+@keyframes bottom {
+  0%   { opacity: 1; }
+  50%  { opacity: 1; }
+  80%  { opacity: 0; }
+  100% { opacity: 0; }
+}
+
+@keyframes top {
+  0%   { opacity: 0; }
+  50%  { opacity: 0; }
+  80%  { opacity: 1; }
+  100% { opacity: 1; }
+}
+&lt;/style&gt;</tw-passagedata>
 <tw-passagedata pid="32" name="And you arrive at the address." tags="" position="1726,1868">&lt;script&gt;holo.setStyle(&#39;space3&#39;); sounds.thememusic.play(); sounds.thememusic.fade(0, 1, 1000);&lt;/script&gt;It&#39;s a square and [white-washed building]&lt;building|(click: ?building)[, [without a door]&lt;door|.
 
 (click: ?door)[This is bewildering. You stand at the end of the end of the front walk, between two hedges, and stare at the place on the wall [[where the door should sit]].
 ]]</tw-passagedata>
 <tw-passagedata pid="33" name="where the door should sit" tags="" position="1916,1996">There&#39;s a gravel walk around the exterior of the building and you follow it under equidistant black windows. The windows are just taller than you, too high to see in.
 
-You walk and walk, hearing the sound of your shoes on the grit of the path, and finally you arrive at the rear side of the building. It is exactly the twin of the front, except [[there is a door-&gt;except there is a door]].</tw-passagedata>
+{
+&lt;div id=&quot;fade&quot;&gt;
+&lt;img src=&quot;http://seerscatalogue.github.io/seers/animations/cubehouse1.jpg&quot; class=&quot;anim zero&quot;&gt;
+&lt;img src=&quot;http://seerscatalogue.github.io/seers/animations/cubehouse2.png&quot; class=&quot;anim one&quot;&gt;
+&lt;img src=&quot;http://seerscatalogue.github.io/seers/animations/cubehouse3.png&quot; class=&quot;anim two&quot;&gt;
+&lt;img src=&quot;http://seerscatalogue.github.io/seers/animations/cubehouse4.png&quot; class=&quot;anim three&quot;&gt;
+&lt;/div&gt;
+}
+
+You walk and walk, hearing the sound of your shoes on the grit of the path, and finally you arrive at the rear side of the building. It is exactly the twin of the front, except [[there is a door-&gt;except there is a door]].
+
+&lt;style&gt;
+#fade {
+  position:relative;
+  width: auto;
+  height: 400px;
+  margin: 0 auto;
+}
+
+#fade img {
+  position:absolute;
+  left:0;
+}
+
+#fade img.anim {
+    animation: 9s 1 ease-in-out;
+}
+
+#fade img.zero  { animation-name: zero; }
+#fade img.one   { animation-name: one; }
+#fade img.two   { animation-name: two; }
+#fade img.three { animation-name: three; }
+
+@keyframes zero {
+  0%       { opacity: 1; }
+  15%      { opacity: 1; }
+  28.333%  { opacity: 0; }
+  100%     { opacity: 0; }
+}
+
+@keyframes one {
+  0%       { opacity: 0; }
+  15%      { opacity: 0; }
+  28.333%  { opacity: 1; }
+  43.333%  { opacity: 1; }
+  56.666%  { opacity: 0; }
+  100%     { opacity: 0; }
+}
+
+@keyframes two {
+  0%       { opacity: 0; }
+  43.333%  { opacity: 0; }
+  56.666%  { opacity: 1; }
+  71.666%  { opacity: 1; }
+  85%      { opacity: 0; }
+  100%     { opacity: 0; }
+}
+
+@keyframes three {
+  0%       { opacity: 0; }
+  71.666%  { opacity: 0; }
+  85%      { opacity: 1; }
+  100%     { opacity: 1; }
+}
+&lt;/style&gt;</tw-passagedata>
 <tw-passagedata pid="34" name="except there is a door" tags="" position="2062,2001">&lt;span onmouseover=&quot;sounds.knockondoor.play();&quot;&gt;[[You knock.-&gt;You knock]]&lt;/span&gt;
 </tw-passagedata>
 <tw-passagedata pid="35" name="Here" tags="" position="1524,436">Inside the room sit a man and a woman, behind a wooden desk. Each has a large ledger before them, and they share a lamp with a wide, green banker&#39;s shade. The lamp is the only source of light in the room and it seems to highlight everything that is green or gold, like the man&#39;s half-rimmed reading glasses, the woman&#39;s triangular earrings, the wedding ring on each of their hands. Or the jade-coloured bindings of their ledgers, the leather chair in front of you. They gesture at the chair, and you [sit]&lt;sit|.
@@ -2239,11 +2350,54 @@ you are an accomplice
 you are an accomplice
 
 (live: 5s)[(click-replace: ?accomplice)[&lt;span onclick=&quot;sounds.footstepsrunning.fade(0.5, 0, 2000); sounds.thunderstorm_old.fade(0.5, 0, 2000); sounds.thememusic.fade(1, 0, 2000);&quot;&gt;[[you are an accomplice-&gt;accompliceend]]&lt;/span&gt;](stop:)]</tw-passagedata>
-<tw-passagedata pid="113" name="accompliceend" tags="" position="4977,2637">
-#THE END
+<tw-passagedata pid="113" name="accompliceend" tags="" position="4977,2637">{
+&lt;div id=&quot;fade&quot;&gt;
+&lt;img src=&quot;http://seerscatalogue.github.io/seers/animations/plant0.png&quot; class=&quot;anim bottom&quot;&gt;
+&lt;img src=&quot;http://seerscatalogue.github.io/seers/animations/plant1.png&quot; class=&quot;anim top&quot;&gt;
+&lt;/div&gt;
+}
+(live: 6s)[There are other ways this can end.(stop:)]
+(live: 8s)[&lt;script&gt;sounds.footstepsrunning.stop(); sounds.thememusic.stop(); sounds.thunderstorm_old.stop();&lt;/script&gt;[[Start again.-&gt;Start]](stop:)]
 
-(live: 2s)[There are other ways this can end.(stop:)]
-(live: 3s)[&lt;script&gt;sounds.footstepsrunning.stop(); sounds.thememusic.stop(); sounds.thunderstorm_old.stop();&lt;/script&gt;[[Start again.-&gt;Start]](stop:)]</tw-passagedata>
+&lt;style&gt;
+#fade {
+  position:relative;
+  width: auto;
+  height: 500px;
+  margin: 0 auto;
+}
+
+#fade img {
+  position:absolute;
+  left:0;
+}
+
+#fade img.anim {
+    animation: 5s 1 ease-in-out forwards;
+}
+
+#fade img.bottom {
+    animation-name: bottom;
+}
+
+#fade img.top {
+    animation-name: top;
+}
+
+@keyframes bottom {
+  0%   { opacity: 1; }
+  50%  { opacity: 1; }
+  80%  { opacity: 0; }
+  100% { opacity: 0; }
+}
+
+@keyframes top {
+  0%   { opacity: 0; }
+  50%  { opacity: 0; }
+  80%  { opacity: 1; }
+  100% { opacity: 1; }
+}
+&lt;/style&gt;</tw-passagedata>
 <tw-passagedata pid="114" name="conk Harper Lee on the back of the head" tags="" position="4188,179">[She falls]&lt;falls|
 (click: ?falls)[[she&#39;s still breathing]&lt;breathing|(click: ?breathing)[,
 [[she&#39;s out like a light]].]]</tw-passagedata>
@@ -2574,10 +2728,42 @@ Jane exchanges glances with Mr. Bud.
 
 She walks around the desk and puts the [ruby]&lt;ruby| in your hands.
 
+{
+&lt;div id=&quot;fade&quot;&gt;
+&lt;img src=&quot;http://seerscatalogue.github.io/seers/animations/hand.png&quot;&gt;
+&lt;img src=&quot;http://seerscatalogue.github.io/seers/animations/ruby.png&quot; class=&quot;top&quot;&gt;
+&lt;/div&gt;
+}
+
 (click: ?ruby)[It [glints]&lt;glints|.
 
 (click: ?glints)[&lt;b&gt;[[You now have a ruby]].&lt;/b&gt;
-]]</tw-passagedata>
+]]
+
+&lt;style&gt;
+#fade {
+  position:relative;
+  width: auto;
+  height: 400px;
+  margin: 0 auto;
+}
+
+#fade img {
+  position:absolute;
+  left:0;
+}
+
+#fade img.top {
+    animation: fader 6s 1 ease-in-out alternate;
+}
+
+@keyframes fader {
+  0%   { opacity: 0; }
+  50%  { opacity: 0; }
+  80%  { opacity: 1; }
+  100% { opacity: 1; }
+}
+&lt;/style&gt;</tw-passagedata>
 <tw-passagedata pid="164" name="unclem" tags="" position="284,608">The first time you saw an issue of //The Seers Catalogue// it was at your [Uncle]&lt;uncle|&#39;s house.
 {
 (click: ?uncle)[
@@ -2685,10 +2871,42 @@ You are running and you feel alive and free, accomplished somehow, even though y
 
 She walks around the desk and puts the [diamond]&lt;diamond| in your hands.
 
+{
+&lt;div id=&quot;fade&quot;&gt;
+&lt;img src=&quot;http://seerscatalogue.github.io/seers/animations/hand.png&quot;&gt;
+&lt;img src=&quot;http://seerscatalogue.github.io/seers/animations/diamond.png&quot; class=&quot;top&quot;&gt;
+&lt;/div&gt;
+}
+
 (click: ?diamond)[It [flashes]&lt;flashes|.
 
 (click: ?flashes)[&lt;b&gt;[[You now have a diamond]].&lt;/b&gt;
-]]</tw-passagedata>
+]]
+
+&lt;style&gt;
+#fade {
+  position:relative;
+  width: auto;
+  height: 400px;
+  margin: 0 auto;
+}
+
+#fade img {
+  position:absolute;
+  left:0;
+}
+
+#fade img.top {
+    animation: fader 6s 1 ease-in-out alternate;
+}
+
+@keyframes fader {
+  0%   { opacity: 0; }
+  50%  { opacity: 0; }
+  80%  { opacity: 1; }
+  100% { opacity: 1; }
+}
+&lt;/style&gt;</tw-passagedata>
 <tw-passagedata pid="180" name="You now have a diamond" tags="" position="1556,1597">&quot;I&#39;m your accomplice,&quot; you say. &quot;Now [what is this about?]&lt;what|&quot;
 
 (click: ?what)[Mr. Bud clears his throat. &quot;Forgive our reticence. This is a war with many casualties; even some of our [strongest allies]&lt;allies| have been captured or turned.&quot;
@@ -3311,7 +3529,7 @@ Naturally, it is an issue of //The Seers Catalogue//.
 
 &lt;img id=&quot;shapescycle&quot; style=&quot;cursor: pointer;&quot; src=&quot;http://seerscatalogue.github.io/seers/images/shapes/shapes0000.png&quot; width=&quot;100%&quot; onclick=&quot;vars.shapesCycle = (vars.shapesCycle + 1) % 20; $(&#39;#shapescycle&#39;).attr(&#39;src&#39;, &#39;http://seerscatalogue.github.io/seers/images/shapes/shapes00&#39; + holo.padNumber(vars.shapesCycle, 2) + &#39;.png&#39;);&quot;&gt;
 [[Hours pass.-&gt;the war]]</tw-passagedata>
-<tw-passagedata pid="264" name="Testing Start" tags="" position="282,175">{
+<tw-passagedata pid="264" name="Testing Start" tags="" position="282,176">{
 (set: $topic to &quot;KEYS&quot;)
 (set: $yourName to &quot;test testson&quot;)
 (set: $yourCity to &quot;testville&quot;)
@@ -3330,45 +3548,13 @@ Naturally, it is an issue of //The Seers Catalogue//.
 
 [[strange paths]]
 
-&lt;video style=&quot;width:100%&quot; src=&quot;http://seerscatalogue.github.io/seers/cubehouse.mp4&quot; poster=&quot;http://seerscatalogue.github.io/seers/cubehouse-poster.jpg&quot;&gt;&lt;/video&gt;
-&lt;script&gt;var v = document.getElementsByTagName(&#39;video&#39;)[0];
-v.addEventListener(&#39;canplaythrough&#39;, function() { setTimeout(function(){v.play();}, 1000); });&lt;/script&gt;
+[[where the door should sit]] 
 
-&lt;div id=&quot;fade&quot;&gt;
-&lt;img src=&quot;http://localhost:3000/cubehouse1.jpg&quot;&gt;
-&lt;img src=&quot;http://localhost:3000/cubehouse2.png&quot; class=&quot;top&quot;&gt;
-&lt;/div&gt;
+[[yesdiamond]] 
 
-&lt;style&gt;
-#fade {
-  position:relative;
-  width: auto;
-  height: 400px;
-  margin: 0 auto;
-}
+[[yes2]] 
 
-#fade img {
-  position:absolute;
-  left:0;
-}
-
-#fade img.top {
-    animation: fader 5s infinite ease-in-out;
-	animation-direction: alternate;
-}
-
-@keyframes fader {
-  0% {
-  	opacity: 0;
-  }
-  50% {
-  	opacity: 0;
-  }
-  100% {
-  	opacity: 1;
-  }
-}
-&lt;/style&gt;
+[[accompliceend]] 
 
 
 (live:100ms)[
