@@ -362,7 +362,6 @@ $.getScript("https://cdn.rawgit.com/josephg/noisejs/master/perlin.js", function(
 ////////Paste into here!
 
 
-
       window.articleReadCount = 0;
       window.articleReadTime = 0;
 
@@ -426,17 +425,23 @@ $.getScript("https://cdn.rawgit.com/josephg/noisejs/master/perlin.js", function(
 
       var coverSrcPrefix = rootSrc + 'magCovers/';
 
+      var covers = [
+        'gardens.jpg',
+        'keys.jpg',
+        'sport.jpg',
+        'royals.jpg'
+      ];
+
       var filesToLoad = Object
         .keys(iconFilesToPassages)
         .map(function(src) { return iconSrcPrefix + src; })
-        .concat(coverSrcPrefix + 'gardens.jpg');
+        .concat(covers.map(function(c) { return coverSrcPrefix + c; }));
 
       var debouncedDoMag = debounce(doMag, 1000, true);
 
       window.initMag = function() {
         if(queue == undefined) {
           queue = new createjs.LoadQueue();
-          queue.installPlugin(createjs.Sound);
           queue.on("complete", doMag, this);
           queue.loadManifest(filesToLoad);
         }
@@ -513,7 +518,7 @@ $.getScript("https://cdn.rawgit.com/josephg/noisejs/master/perlin.js", function(
           })();
         }
 
-        mag = new createjs.Bitmap(queue.getResult(coverSrcPrefix + 'gardens.jpg'));
+        mag = new createjs.Bitmap(queue.getResult(coverSrcPrefix + window.currentTopic + '.jpg'));
         stage.addChild(mag);
         mag.initX = mag.x = 150;
         mag.initY = mag.y = 420;
@@ -560,7 +565,6 @@ $.getScript("https://cdn.rawgit.com/josephg/noisejs/master/perlin.js", function(
 
         stage.update(event);
       }
-
 
 
 ////////Stop pastin' here, chief
@@ -1249,6 +1253,7 @@ A painting of someone in folded velvet garments, dark colours, like from a bygon
 }
 </tw-passagedata>
 <tw-passagedata pid="15" name="strange paths" tags="" position="726,530">&lt;script&gt;sounds.thememusic.stop();&lt;/script&gt;(if: $tryagain is 0)[&lt;script&gt;sounds.magazinetheme.play(); sounds.magazinetheme.fade(0, 0.1, 1000); holo.setStyle(&#39;spacemagazine&#39;);&lt;/script&gt;]
+&lt;div style=&quot;display:none&quot;&gt;$topic&lt;/div&gt;&lt;script&gt;window.currentTopic = $(&quot;tw-expression[name=&#39;topic&#39;]&quot;).first().text().toLowerCase();&lt;/script&gt;
 (display: &quot;toc&quot;)
 &lt;style&gt;
 .mag-toc {
@@ -3048,7 +3053,7 @@ The foyer is filled with tall ferns, in pots, and a single vase with gladiolas a
 (click: ?paperweight)[[But in her right hand she is holding a pistol. It is pointed at you, or maybe at Harper Lee. The two of you stand face to face, each of you clutching the fire extinguisher.]&lt;pistol|
 
 (click: ?pistol)[&lt;span onclick=&quot;sounds.gunshot.play();&quot;&gt;[[&quot;Mi-o,&quot; you say.-&gt;Mioplea]]&lt;/span&gt;]]]</tw-passagedata>
-<tw-passagedata pid="194" name="Seers Catalogue" tags="" position="415,429">&lt;div style=&quot;text-align: center;&quot;&gt;(set: $month to &quot;June&quot;)(set: $topic to &quot;GARDENS&quot;)It&#39;s an issue from |month2&gt;[$month].
+<tw-passagedata pid="194" name="Seers Catalogue" tags="" position="416,429">&lt;div style=&quot;text-align: center;&quot;&gt;(set: $month to &quot;June&quot;)(set: $topic to &quot;GARDENS&quot;)It&#39;s an issue from |month2&gt;[$month].
 
 //The Seers Catalogue// always has a special [$month]&lt;month| issue.&lt;/div&gt;&lt;div style=&quot;text-align: center;&quot;&gt;This issue is about [&quot;GARDENS&quot;]&lt;topic|. (set: $topic to &quot;GARDENS&quot;)
 
@@ -3570,6 +3575,7 @@ Naturally, it is an issue of //The Seers Catalogue//.
 [[Start]]
 
 [[strange paths]]
+
 
 (live:100ms)[
 $topic
