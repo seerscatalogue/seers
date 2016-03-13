@@ -1,7 +1,7 @@
 /* eslint no-var:0 vars-on-top:0 */
 /* eslint-env node:false es6:false */
 /* global createjs vanillaModal */
-var canvas, queue, stage, loaderBar, bgRect, fullLoaderBar;
+var canvas, queue, stage, loaderBar, bgRect, fullLoaderBar, beginButton;
 var bgs, bg1, bg2, fg;
 
 var interactionEnabled = false;
@@ -19,7 +19,8 @@ var toLoad = [
   'splash/bg2.png',
   'splash/fg.png',
   'splash/title.png',
-  'splash/credits.png'
+  'splash/credits.png',
+  'splash/begin.png'
 ];
 
 function init() {
@@ -141,8 +142,17 @@ function beginFullLoad() {
       .endStroke();
   });
 
-  fullQueue.on('complete', function(e) {
-    console.log('ok!');
+  fullQueue.on('complete', function() {
+    createjs.Tween
+      .get(fullLoaderBar)
+      .to({alpha:0, visible:false}, 1000)
+      .call(function() {
+        stage.removeChild(fullLoaderBar);
+
+        createjs.Tween
+          .get(beginButton)
+          .to({alpha:1}, 2000);
+      });
   });
   fullQueue.loadManifest(Object.keys(man));
 }
@@ -192,6 +202,17 @@ function startSplash() {
     modal.open('#creditsModal');
   });
 
+  beginButton = new createjs.Bitmap(queue.getResult('splash/begin.png'));
+  beginButton.regX = beginButton.image.width / 2;
+  beginButton.regY = beginButton.image.height / 2;
+  beginButton.x = canvas.width / 2;
+  beginButton.y = canvas.height * 0.9;
+  beginButton.alpha = 0;
+  beginButton.cursor = 'pointer';
+  beginButton.on("mousedown", function() {
+    location.replace('story.html');
+  });
+
   fullLoaderBar = new createjs.Shape();
   fullLoaderBar.graphics.setStrokeStyle(1);
   fullLoaderBar.graphics.beginStroke("#000");
@@ -200,8 +221,13 @@ function startSplash() {
   fullLoaderBar.regY = 10;
   fullLoaderBar.x = canvas.width / 2;
   fullLoaderBar.y = canvas.height * 0.9;
-  fullLoaderBar.alpha = 0;
-  stage.addChild(fullLoaderBar);
+
+
+  var loaderContainer = new createjs.Container();
+  loaderContainer.alpha = 0;
+  loaderContainer.addChild(fullLoaderBar);
+  loaderContainer.addChild(beginButton);
+  stage.addChild(loaderContainer);
 
   beginFullLoad();
 
@@ -240,7 +266,7 @@ function startSplash() {
         .wait(9000)
         .to({alpha:1}, 2000);
       createjs.Tween
-        .get(fullLoaderBar)
+        .get(loaderContainer)
         .wait(9000)
         .to({alpha:1}, 2000);
 
