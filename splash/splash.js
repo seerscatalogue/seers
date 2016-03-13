@@ -19,7 +19,10 @@ var toLoad = [
   'splash/bg2.png',
   'splash/fg.png',
   'images/full_seers_circle_logo_cropped.png',
+  'images/commissioned_wordmark.png',
   'splash/title.png',
+  'splash/seers_starting_text.png',
+  'splash/seers_loading_text.png',
   'splash/credits.png',
   'splash/begin.png',
   'backgrounds/paper_texture_40.png'
