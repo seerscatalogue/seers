@@ -49,7 +49,7 @@ body {
 	font-weight: 300;
 	color: #ffffcc;
 	background-color: #333333;
-	background-image: url("http://seerscatalogue.github.io/seers/backgrounds/paper_texture_40.png");
+	background-image: url("backgrounds/paper_texture_40.png");
 	background-repeat: no-repeat, no-repeat;
 	background-position: center, center;
 	background-attachment: fixed, fixed;
