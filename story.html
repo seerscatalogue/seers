@@ -403,6 +403,9 @@ $.getScript("https://cdn.rawgit.com/josephg/noisejs/master/perlin.js", function(
       var icons = [];
       var beziers = [];
 
+      var waitedTime;
+      var MIN_WAIT_TIME = 1000;
+
       var rootSrc = 'http://seerscatalogue.github.io/seers/images/';
 
       var iconSrcPrefix = rootSrc + 'magIcons/';
@@ -447,7 +450,7 @@ $.getScript("https://cdn.rawgit.com/josephg/noisejs/master/perlin.js", function(
         .map(function(src) { return iconSrcPrefix + src; })
         .concat(covers.map(function(c) { return coverSrcPrefix + c; }));
 
-      var debouncedDoMag = debounce(doMag, 1000, true);
+      var debouncedDoMag = debounce(doMag, MIN_WAIT_TIME, true);
 
       window.initMag = function() {
         if(queue == undefined) {
@@ -469,7 +472,8 @@ $.getScript("https://cdn.rawgit.com/josephg/noisejs/master/perlin.js", function(
         }
       };
 
-      function doMag() { //eslint-disable-line no-unused-vars
+      function doMag() {
+        waitedTime = 0;
         stage = new createjs.Stage("magcanvas");
         stage.enableMouseOver(10);
         createjs.Touch.enable(stage);
@@ -503,6 +507,11 @@ $.getScript("https://cdn.rawgit.com/josephg/noisejs/master/perlin.js", function(
             icon.cursor = "pointer";
 
             icon.on("mousedown", function() {
+              //Wait so our debounced func doesn't break the mag
+              if(waitedTime < MIN_WAIT_TIME) {
+                return;
+              }
+
               icons.forEach(function(ic) {
                 ic.removeAllEventListeners();
               });
@@ -548,6 +557,7 @@ $.getScript("https://cdn.rawgit.com/josephg/noisejs/master/perlin.js", function(
       function tick(event) {
         var time = createjs.Ticker.getTime();
 
+        waitedTime += event.delta;
         window.articleReadTime += event.delta;
 
         mag.x = mag.initX + 20 * noise.simplex2(100, time / 18000);
@@ -1576,7 +1586,7 @@ You wipe your eyes and pack some things and, outside, [get on a bicycle]&lt;vehi
 }
 ]
 </tw-passagedata>
-<tw-passagedata pid="31" name="yes2" tags="" position="1749,2116">{
+<tw-passagedata pid="31" name="yes2" tags="" position="1749,2115">{
 &lt;div id=&quot;fade&quot;&gt;
 &lt;img src=&quot;http://seerscatalogue.github.io/seers/animations/plant0.png&quot; class=&quot;anim bottom&quot;&gt;
 &lt;img src=&quot;http://seerscatalogue.github.io/seers/animations/plant1.png&quot; class=&quot;anim top&quot;&gt;
@@ -3536,7 +3546,7 @@ Naturally, it is an issue of //The Seers Catalogue//.
 
 &lt;img id=&quot;shapescycle&quot; style=&quot;cursor: pointer;&quot; src=&quot;http://seerscatalogue.github.io/seers/images/shapes/shapes0000.png&quot; width=&quot;100%&quot; onclick=&quot;vars.shapesCycle = (vars.shapesCycle + 1) % 20; $(&#39;#shapescycle&#39;).attr(&#39;src&#39;, &#39;http://seerscatalogue.github.io/seers/images/shapes/shapes00&#39; + holo.padNumber(vars.shapesCycle, 2) + &#39;.png&#39;);&quot;&gt;
 [[Hours pass.-&gt;the war]]</tw-passagedata>
-<tw-passagedata pid="258" name="Testing Start" tags="" position="94,186">{
+<tw-passagedata pid="258" name="Testing Start" tags="" position="93,186">{
 (set: $topic to &quot;KEYS&quot;)
 (set: $yourName to &quot;test testson&quot;)
 (set: $yourCity to &quot;testville&quot;)
@@ -3555,6 +3565,7 @@ Naturally, it is an issue of //The Seers Catalogue//.
 
 [[strange paths]]
 
+[[yes2]] 
 
 (live:100ms)[
 $topic
