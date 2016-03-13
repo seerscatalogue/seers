@@ -1,26 +1,51 @@
 <!doctype html>
-<html lang="en-us">
+<html class="no-js" lang="">
   <head>
     <meta charset="utf-8">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>Unity WebGL Player | UnityTemplate</title>
-    <style>
-    /* a style sheet needs to be present for cursor hiding and custom cursors to work. */
-    </style>
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>THE SEERS CATALOGUE</title>
+    <script src="https://code.createjs.com/createjs-2015.11.26.min.js"></script>
+
+    <script src="splash/vanilla-modal.min.js"></script>
+    <script src="splash/splash.js"></script>
+    <script src="manifest.js"></script>
+    <link href="splash/styles.css" rel="stylesheet" />
   </head>
   <body>
-    <canvas class="emscripten" id="canvas" oncontextmenu="event.preventDefault()" height="540px" width="960px"></canvas>
-    <script type='text/javascript'>
-  var Module = {
-    TOTAL_MEMORY: 268435456,
-    errorhandler: null,			// arguments: err, url, line. This function must return 'true' if the error is handled, otherwise 'false'
-    compatibilitycheck: null,
-    dataUrl: "Release/HTML5.data",
-    codeUrl: "Release/HTML5.js",
-    memUrl: "Release/HTML5.mem",
-  };
-</script>
-<script src="Release/UnityLoader.js"></script>
+    <div class="modal">
+      <div class="modal-inner">
+        <a rel="modal:close">&times;</a>
+        <div class="modal-content"></div>
+      </div>
+    </div>
 
+    <div id="creditsModal" style="display:none">
+      <div>
+        <p>
+          Created by:<br />
+          <a href="http://thebathwater.com/">''James Braithwaite''</a><br />
+          ''Patrick McEown''<br />
+          <a href="http://www.twitter.com/stgramophone">''Sean Michaels''</a><br />
+          ''six a''<br />
+          <br />
+          Based on a text by Sean Michaels.<br />
+          <br />
+          Commissioned by ''The Banff Centre Press''.<br />
+          Additional code by Kenny Lozowski.<br />
+          <br />
+          Main musical theme by <a href="http://howlarts.net/reve">r&ecirc;ves sonores</a>
+          (Nick Schofield + Stefan Christoff, featuring Brahja Waldman). Additional music
+          by Logan Miley. SFX with help from Tristan Capacchione, Stéphane Larivière &amp;
+          Thibaut Macquart. Other sounds by <a href="https://freesound.org">Freesound</a>
+          users acclivity, lwdickens, otherthings, tompallant and trundefly.
+        </p>
+      </div>
+    </div>
+
+    <div class="parent">
+      <div class="aligned">
+        <canvas id="splash" width="800" height="500"></canvas>
+      </div>
+    </div>
   </body>
 </html>
