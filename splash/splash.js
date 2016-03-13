@@ -18,14 +18,10 @@ var toLoad = [
   'splash/bg1.png',
   'splash/bg2.png',
   'splash/fg.png',
-  'images/full_seers_circle_logo_cropped.png',
-  'images/commissioned_wordmark.png',
   'splash/title.png',
-  'splash/seers_starting_text.png',
-  'splash/seers_loading_text.png',
+  // 'splash/seers_loading_text.png',
   'splash/credits.png',
-  'splash/begin.png',
-  'backgrounds/paper_texture_40.png'
+  'splash/begin.png'
 ];
 
 function init() {
@@ -97,13 +93,6 @@ function handleMouseMove(e) {
 function beginFullLoad() {
   var man = window.manifest;
 
-  var totalSize = 0;
-  for(var k in man) {
-    if(man.hasOwnProperty(k)) {
-      totalSize += man[k];
-    }
-  }
-
   var fullQueue = new createjs.LoadQueue();
   fullQueue.on('progress', function(e) {
     var g = fullLoaderBar.graphics;
@@ -134,7 +123,7 @@ function beginFullLoad() {
           .to({alpha:1}, 2000);
       });
   });
-  fullQueue.loadManifest(Object.keys(man));
+  fullQueue.loadManifest(man);
 }
 
 function startSplash() {

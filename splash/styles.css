@@ -13,6 +13,11 @@ body {
   align-items: center;
 }
 
+.aligned > img {
+  display: block;
+  margin: auto;
+}
+
 /* Modal styles. */
 
 .modal {
@@ -48,13 +53,8 @@ body {
 	font-family: 'Roboto', sans-serif;
 	font-weight: 300;
 	color: #ffffcc;
-	background-color: #333333;
-	background-image: url("backgrounds/paper_texture_40.png");
-	background-repeat: no-repeat, no-repeat;
-	background-position: center, center;
-	background-attachment: fixed, fixed;
-	background-size: cover, cover;
-	background-blend-mode: luminosity, normal;
+	background-image: url("paper_bg.jpg");
+	background-size: cover;
 }
 
 .vanilla-modal .modal a {
