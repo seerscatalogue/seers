@@ -99,32 +99,7 @@ function beginFullLoad() {
     }
   }
 
-  var totalProgress = 0;
-  var currentFile;
-
   var fullQueue = new createjs.LoadQueue();
-  // fullQueue.on('filestart', function(e) {
-  //   if(currentFile !== undefined) {
-  //
-  //   }
-  //   currentFile = e.item;
-  // });
-  // fullQueue.on('fileprogress', function(e) {
-  //   var g = fullLoaderBar.graphics;
-  //
-  //   g.clear();
-  //
-  //   g
-  //     .beginFill('#ff7373')
-  //     .drawRect(0, 0, barWidth * e.loaded, 20)
-  //     .endFill();
-  //
-  //   g.
-  //     setStrokeStyle(1)
-  //     .beginStroke("#000")
-  //     .drawRect(0, 0, barWidth, 20)
-  //     .endStroke();
-  // });
   fullQueue.on('progress', function(e) {
     var g = fullLoaderBar.graphics;
 
