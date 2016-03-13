@@ -1,7 +1,7 @@
 /* eslint no-var:0 vars-on-top:0 */
 /* eslint-env node:false es6:false */
 /* global createjs vanillaModal */
-var canvas, queue, stage, loaderBar, bgRect, fullLoaderBar, beginButton;
+var canvas, queue, stage, loaderBar, bgRect, fullLoaderBar, fullLoaderText, beginButton;
 var bgs, bg1, bg2, fg;
 
 var interactionEnabled = false;
@@ -19,7 +19,7 @@ var toLoad = [
   'splash/bg2.png',
   'splash/fg.png',
   'splash/title.png',
-  // 'splash/seers_loading_text.png',
+  'splash/seers_loading_text.png',
   'splash/credits.png',
   'splash/begin.png'
 ];
@@ -113,10 +113,14 @@ function beginFullLoad() {
 
   fullQueue.on('complete', function() {
     createjs.Tween
+      .get(fullLoaderText)
+      .to({alpha:0, visible:false}, 1000);
+    createjs.Tween
       .get(fullLoaderBar)
       .to({alpha:0, visible:false}, 1000)
       .call(function() {
         stage.removeChild(fullLoaderBar);
+        stage.removeChild(fullLoaderText);
 
         createjs.Tween
           .get(beginButton)
@@ -151,7 +155,7 @@ function startSplash() {
   title.regX = title.image.width / 2;
   title.regY = title.image.height / 2;
   title.x = canvas.width / 2;
-  title.y = canvas.height / 2;
+  title.y = canvas.height / 2 - 60;
   title.alpha = 0;
   title.scaleX = 0.8;
   title.scaleY = 0.8;
@@ -191,10 +195,16 @@ function startSplash() {
   fullLoaderBar.x = canvas.width / 2;
   fullLoaderBar.y = canvas.height * 0.9;
 
+  fullLoaderText = new createjs.Bitmap(queue.getResult('splash/seers_loading_text.png'));
+  fullLoaderText.regX = fullLoaderText.image.width / 2;
+  fullLoaderText.regY = fullLoaderText.image.height;
+  fullLoaderText.x = canvas.width / 2;
+  fullLoaderText.y = canvas.height * 0.9 - 10;
 
   var loaderContainer = new createjs.Container();
   loaderContainer.alpha = 0;
   loaderContainer.addChild(fullLoaderBar);
+  loaderContainer.addChild(fullLoaderText);
   loaderContainer.addChild(beginButton);
   stage.addChild(loaderContainer);
 
