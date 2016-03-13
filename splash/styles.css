@@ -41,9 +41,34 @@ body {
 .vanilla-modal .modal > * {
   display: inline-block;
   white-space: normal;
+	width: 50%;
   vertical-align: middle;
-  text-align: left;
+	font-size: 120%;
+  text-align: center;
+	font-family: 'Roboto', sans-serif;
+	font-weight: 300;
+	color: #ffffcc;
+	background-color: #333333;
+	background-image: url("http://seerscatalogue.github.io/seers/backgrounds/paper_texture_40.png");
+	background-repeat: no-repeat, no-repeat;
+	background-position: center, center;
+	background-attachment: fixed, fixed;
+	background-size: cover, cover;
+	background-blend-mode: luminosity, normal;
 }
+
+.vanilla-modal .modal a {
+color: #ccffff;
+text-decoration: none;
+}
+
+
+.vanilla-modal .modal .shadow {
+color: white; text-shadow: black 0.1em 0.1em 0.2em;
+font-style: italic;
+	font-size: 120%;
+}
+
 
 .vanilla-modal .modal:before {
   display: inline-block;
