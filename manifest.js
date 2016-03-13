@@ -1,8 +1,8 @@
 window.manifest = [
   "animations/cubehouse1.jpg",
-  "animations/cubehouse2.png",
-  "animations/cubehouse3.png",
-  "animations/cubehouse4.png",
+  "animations/cubehouse2.jpg",
+  "animations/cubehouse3.jpg",
+  "animations/cubehouse4.jpg",
   "animations/diamond.png",
   "animations/hand.png",
   "animations/plant0.png",
