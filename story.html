@@ -11,7 +11,7 @@
 
 <tw-story></tw-story>
 
-<tw-storydata name="The Seers Catalogue" startnode="264" creator="Twine" creator-version="2.0.10" ifid="31499EFC-AE44-468D-9D58-0173DAD2E598" format="Harlowe-mod" options="" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">@import url(http://fonts.googleapis.com/css?family=Roboto:400,300,500,300italic,400italic,500italic|Roboto+Slab:400,300|Playfair+Display:400,400italic);
+<tw-storydata name="The Seers Catalogue" startnode="1" creator="Twine" creator-version="2.0.10" ifid="31499EFC-AE44-468D-9D58-0173DAD2E598" format="Harlowe-mod" options="" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">@import url(http://fonts.googleapis.com/css?family=Roboto:400,300,500,300italic,400italic,500italic|Roboto+Slab:400,300|Playfair+Display:400,400italic);
 
 html {
 	font-family: 'Roboto', sans-serif;
@@ -31,6 +31,14 @@ html.space1 {
 	background-attachment: fixed;
 }
 html.space1 tw-enchantment, html.space1 tw-link {
+	color: #cc6633;
+}
+
+html.spacemagazine {
+	background-image: url("http://seerscatalogue.github.io/seers/images/seers_grid_tile_faded.png");
+	background-repeat: repeat;
+}
+html.spacemagazine tw-enchantment, html.space1 tw-link {
 	color: #cc6633;
 }
 
@@ -319,6 +327,17 @@ a {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
 </style><script role="script" id="twine-user-script" type="text/twine-javascript">//Invoke scripts like this:
 //<img src="data:image/gif;base64,R0lGODlhAQABAAAAACwAAAAAAQABAAA=" style="display: none;" onload="holo.setBg(0.8); holo.setTextDark();">
 
@@ -343,7 +362,7 @@ $.getScript("https://cdn.rawgit.com/josephg/noisejs/master/perlin.js", function(
 ////////Paste into here!
 
 
-	
+
       window.articleReadCount = 0;
       window.articleReadTime = 0;
 
@@ -541,9 +560,9 @@ $.getScript("https://cdn.rawgit.com/josephg/noisejs/master/perlin.js", function(
 
         stage.update(event);
       }
-	
-	
-	
+
+
+
 ////////Stop pastin' here, chief
 });
 });
@@ -1152,7 +1171,18 @@ window.magData = /** start copy paste */ {
 
 
 
-</script><tw-passagedata pid="1" name="Start" tags="" position="460,257">&lt;script&gt;sounds.thememusic.play(); sounds.thememusic.fade(0, 1, 1000); holo.setStyle(&#39;space1&#39;);&lt;/script&gt;You&#39;re in a room with a window,
+
+
+
+
+
+
+
+
+
+
+
+</script><tw-passagedata pid="1" name="Start" tags="" position="460,255">&lt;script&gt;holo.setStyle(&#39;space1&#39;); setTimeout(function() { sounds.thememusic.play(); sounds.thememusic.fade(0, 1, 1000);}, 2000);&lt;/script&gt;You&#39;re in a room with a window,
 and light is [streaming through the window]&lt;c2|(click: ?c2)[,
 like light reflected on water(link: &quot;.&quot;)[.
 And life feels limitless.]
@@ -1162,14 +1192,14 @@ And life feels limitless.]
 <tw-passagedata pid="2" name="The cover is very beautiful." tags="" position="411,581">It is made of heavy, glossy card, with embossed metallic [letters]&lt;letters|.(click: ?letters)[&lt;br&gt;&lt;br&gt;&lt;center&gt;&lt;font size=&quot;+4&quot;&gt;(text-style:&quot;shadow&quot;)[$topic]&lt;/font&gt;&lt;br&gt;it [says]&lt;continue|.&lt;/center&gt;(click: ?continue)[&lt;br&gt;//The Seers Catalogue// is such a special magazine, that is why you have been subscribed for [all these years]&lt;years|.
 
 (click: ?years)[Since you were 21, that first year you felt like a grown-up, [a real grown-up.]&lt;grownup| (click: ?grownup)[The kind of grown-up who subscribes to [[magazines-&gt;unclem]].]]]]</tw-passagedata>
-<tw-passagedata pid="3" name="magazines" tags="" position="254,928">&lt;script&gt;holo.setStyle(&#39;space1&#39;);&lt;/script&gt;Now here you are with light streaming through the window and the $month issue of //The Seers Catalogue//, &quot;$topic&quot;, held perfect in your hands.
+<tw-passagedata pid="3" name="magazines" tags="" position="254,930">&lt;script&gt;holo.setStyle(&#39;space1&#39;);&lt;/script&gt;Now here you are with light streaming through the window and the $month issue of //The Seers Catalogue//, &quot;$topic&quot;, held perfect in your hands.
 (set: $muskoxmemory to $muskoxmemory + 1)
 Do you [[keep remembering the muskox-&gt;muskox]]? You have remembered it {
 (if: $muskoxmemory is 1)[
 once](else:)[
 (if: $muskoxmemory is 2)[
 $muskoxmemory times](else:)[
-$muskoxmemory times and you still have not learned anything]].}&lt;img src=&quot;http://seerscatalogue.github.io/seers/images/pats_illustrations/seers_muskox2.png&quot;&gt;Or else [[open-&gt;Continue]] the magazine.</tw-passagedata>
+$muskoxmemory times and you still have not learned anything]].}&lt;img src=&quot;http://seerscatalogue.github.io/seers/images/pats_illustrations/seers_muskox.png&quot;&gt;Or else [[open-&gt;Continue]] the magazine.</tw-passagedata>
 <tw-passagedata pid="4" name="Opener" tags="" position="492,923">The page you opened to had a huge, beautiful photograph of a city. It was somewhere faraway, blue and gold, like nowhere you had ever seen.
 
 There were towers with shining roofs, and bending rivers that led between courtyards, and all these [bridges]&lt;bridges|.
@@ -1187,9 +1217,7 @@ When you were small you played with the [muskox]&lt;muskoxer| while the adults w
 <tw-passagedata pid="7" name="you never understood" tags="" position="103,756">&lt;script&gt;holo.setStyle(&#39;space2&#39;);&lt;/script&gt;&lt;div class=&quot;aligner&quot;&gt;[&lt;img src=&quot;http://seerscatalogue.github.io/seers/images/pats_illustrations/seers_muskox.png&quot; class=&quot;aligned&quot;&gt;]&lt;muskox|&lt;/div&gt;
 (click: ?muskox)[Marius had a stack of //Seers Catalogues// in his parlour, on the low teak table, beside the brass sculpture of a [[muskox]].]</tw-passagedata>
 <tw-passagedata pid="8" name="Continue" tags="" position="42,906">&lt;img src=&quot;http://seerscatalogue.github.io/seers/images/full_seers_circle_logo_cropped.png&quot; alt=&quot;The Seers Catalogue badge&quot; width=&quot;50%&quot;&gt;
-There is no table of contents. There is no masthead. The magazine never explains what is inside it or [[who compiled these pages]].
-
-[[Start]] </tw-passagedata>
+There is no table of contents. There is no masthead. The magazine never explains what is inside it or [[who compiled these pages]].</tw-passagedata>
 <tw-passagedata pid="9" name="when you asked" tags="" position="149,1337">&lt;script&gt;holo.setStyle(&#39;space2&#39;);&lt;/script&gt;When you asked Uncle Marius how he first heard about //The Seers Catalogue//, he smiled. He ran his hand over the marble of the bench, at the bus station, when you were sitting together.
 
 &quot;From a friend,&quot; [[he said-&gt;cheque]].</tw-passagedata>
@@ -1220,8 +1248,7 @@ A painting of someone in folded velvet garments, dark colours, like from a bygon
 ]
 }
 </tw-passagedata>
-<tw-passagedata pid="15" name="strange paths" tags="" position="771,543">&lt;script&gt;sounds.thememusic.stop(); sounds.magazinetheme.play(); sounds.magazinetheme.fade(0, 0.1, 1000);&lt;/script&gt;
-&lt;script&gt;holo.setStyle(&#39;space1&#39;);&lt;/script&gt;
+<tw-passagedata pid="15" name="strange paths" tags="" position="726,530">&lt;script&gt;sounds.thememusic.stop();&lt;/script&gt;(if: $tryagain is 0)[&lt;script&gt;sounds.magazinetheme.play(); sounds.magazinetheme.fade(0, 0.1, 1000); holo.setStyle(&#39;spacemagazine&#39;);&lt;/script&gt;]
 (display: &quot;toc&quot;)
 &lt;style&gt;
 .mag-toc {
@@ -1233,8 +1260,8 @@ tw-story {
 	border: none !important;
 }
 &lt;/style&gt;</tw-passagedata>
-<tw-passagedata pid="16" name="Mag-LETTERS" tags="" position="892,217">==&gt;
-#####//The Seers Catalogue// &amp;nbsp;&amp;nbsp;&amp;#10041;&amp;nbsp;&amp;nbsp; June, &quot;$topic&quot;
+<tw-passagedata pid="16" name="Mag-LETTERS" tags="" position="893,218">==&gt;
+#####//The Seers Catalogue// &amp;nbsp;&amp;nbsp;&amp;#10041;&amp;nbsp;&amp;nbsp; $month, &quot;$topic&quot;
 &lt;==
 &lt;hr id=&quot;dashed&quot;&gt;
 &lt;img src=&quot;http://seerscatalogue.github.io/seers/images/magIcons/Mag-LETTERS.png&quot; id=&quot;inline&quot;&gt;
@@ -1244,16 +1271,20 @@ tw-story {
 
 &lt;hr id=&quot;symbol&quot;&gt;
 ARTICLEHERE:$topic
-&lt;script&gt;doArticle(&#39;LETTERS&#39;);&lt;/script&gt;&lt;hr id=&quot;symbol&quot;&gt;
-(display: &quot;toc&quot;)</tw-passagedata>
-<tw-passagedata pid="17" name="toc" tags="" position="944,6">{(live: 1s)[(set: $magtimer to it + time)]}
-&lt;div class=&quot;mag-toc&quot;&gt;
 {
+&lt;script&gt;doArticle(&#39;LETTERS&#39;);&lt;/script&gt;&lt;hr id=&quot;symbol&quot;&gt;
+(display: &quot;toc&quot;)
+}</tw-passagedata>
+<tw-passagedata pid="17" name="toc" tags="" position="947,6">{
+(live: 1s)[(set: $magtimer to it + time)]
+
+&lt;div class=&quot;mag-toc&quot;&gt;
+
 (set: $toccount to it + 1)
 &lt;img src=&quot;data:image/gif;base64,R0lGODlhAQABAAAAACwAAAAAAQABAAA=&quot;
       style=&quot;display: none;&quot;
       onload=&quot;initMag();&quot;&gt;
-    &lt;canvas id=&quot;magcanvas&quot; width=&quot;300&quot; height=&quot;600&quot;&gt;&lt;/canvas&gt;}
+    &lt;canvas id=&quot;magcanvas&quot; width=&quot;300&quot; height=&quot;600&quot;&gt;&lt;/canvas&gt;
 &lt;/div&gt;
 &lt;script&gt;sounds.roomtone.stop();&lt;/script&gt;
 &lt;style&gt;
@@ -1305,9 +1336,9 @@ tw-story {
 	background-clip: padding-box;
 }
 
-#dashed { 
+#dashed {
 	border: 0; border-bottom: 1px dashed #ccc; background: #999; }
-	
+
 #symbol {
     padding: 0;
     border: none;
@@ -1332,7 +1363,7 @@ tw-story {
 
 #shadow {
 	text-shadow: 6px 6px 0px rgba(0,0,0,0.2);
-} 
+}
 
 tw-story h1, h2, h3, h4 {
 	letter-spacing: 4px;
@@ -1343,7 +1374,7 @@ tw-story h2 {
 }
 
 tw-story h3 {
-	color: #1E90FF;	
+	color: #1E90FF;
 }
 
 tw-story h4 {
@@ -1363,7 +1394,7 @@ tw-story p span {
 
 tw-story h5 {
 	font-weight: normal;
-	font-family: &#39;Playfair Display&#39;, serif;	
+	font-family: &#39;Playfair Display&#39;, serif;
 }
 
 
@@ -1375,7 +1406,8 @@ tw-story h5 {
   	transform: perspective(222px) rotateZ(-3deg) rotateY(-4deg) rotateX(4deg);
   }
 }
-&lt;/style&gt;</tw-passagedata>
+&lt;/style&gt;
+}</tw-passagedata>
 <tw-passagedata pid="18" name="inside back" tags="" position="1136,410">{
 &lt;script&gt;window.articleReadCount = 3; window.articleReadTime = 90000; holo.setStyle(&#39;space1&#39;); sounds.pageturn.play(); sounds.magazinetheme.fade(0.1, 0, 500); sounds.roomtone.play(); sounds.roomtone.fade(0, 2, 500);&lt;/script&gt;
 
@@ -1535,8 +1567,8 @@ You wipe your eyes and pack some things and, outside, [get on a bicycle]&lt;vehi
 &lt;img src=&quot;http://seerscatalogue.github.io/seers/animations/plant1.png&quot; class=&quot;anim top&quot;&gt;
 &lt;/div&gt;
 }
-(live: 6s)[&lt;span onclick=&quot;sounds.thememusic.stop();&quot;&gt;[[Start again.-&gt;Start]]&lt;/span&gt;(stop:)]
-
+(live: 6s)[&lt;span onclick=&quot;sounds.thememusic.stop();&quot;&gt;[[Try again.-&gt;try-again]]&lt;/span&gt;(stop:)]
+(set: $tryagain to it + 1)
 &lt;style&gt;
 #fade {
   position:relative;
@@ -1580,7 +1612,7 @@ You wipe your eyes and pack some things and, outside, [get on a bicycle]&lt;vehi
 
 (click: ?door)[This is bewildering. You stand at the end of the end of the front walk, between two hedges, and stare at the place on the wall [[where the door should sit]].
 ]]</tw-passagedata>
-<tw-passagedata pid="33" name="where the door should sit" tags="" position="1916,1996">There&#39;s a gravel walk around the exterior of the building and you follow it under equidistant black windows. The windows are just taller than you, too high to see in.
+<tw-passagedata pid="33" name="where the door should sit" tags="" position="1916,1995">There&#39;s a gravel walk around the exterior of the building and you follow it under equidistant black windows. The windows are just taller than you, too high to see in.
 
 {
 &lt;div id=&quot;fade&quot;&gt;
@@ -1590,7 +1622,6 @@ You wipe your eyes and pack some things and, outside, [get on a bicycle]&lt;vehi
 &lt;img src=&quot;http://seerscatalogue.github.io/seers/animations/cubehouse4.png&quot; class=&quot;anim three&quot;&gt;
 &lt;/div&gt;
 }
-
 You walk and walk, hearing the sound of your shoes on the grit of the path, and finally you arrive at the rear side of the building. It is exactly the twin of the front, except [[there is a door-&gt;except there is a door]].
 
 &lt;style&gt;
@@ -2211,13 +2242,8 @@ but then you hear no more because [[the drone is buzzing low]]
 
 (click: ?roaring)[Harper Lee winds back and conks you in the head with their garden rock.
 
-(live: 1s)[The world goes dark. (stop:)]
-(live: 3s)[&lt;script&gt;sounds.thememusic.stop();&lt;/script&gt;
-==&gt;&lt;==
-#THE END
-(stop:)]
+(live: 1s)[[[The world goes dark.-&gt;The world goes dark]] (stop:)]
 
-(live: 3.5s)[[[Start again.-&gt;Start]](stop:)]
 ]</tw-passagedata>
 <tw-passagedata pid="97" name="before you" tags="" position="4372,1696">&lt;script&gt;sounds.footstepsrunning.stop(); sounds.thememusic.stop();&lt;/script&gt;[&quot;What?&quot; they say.]&lt;say|
 
@@ -2304,9 +2330,10 @@ Instead this is [a jewelled bowl]&lt;bowl|, a kind of chalice, with incredible g
 (click: ?accomplice)[(replace: ?an)[a mere]
 &lt;div id=&quot;fadein&quot; class=&quot;aligner&quot;&gt;[[&lt;img src=&quot;http://seerscatalogue.github.io/seers/images/pats_illustrations/lock.png&quot; width=&quot;50%&quot; class=&quot;aligned&quot;&gt;-&gt;these pages2]]&lt;/div&gt;
 (live: 2s)[
-&lt;span onclick=&quot;sounds.thunderstorm.stop();&quot;&gt;[[Try again.-&gt;Start]]&lt;/span&gt;(stop:)]
+&lt;span onclick=&quot;sounds.thunderstorm.stop();&quot;&gt;[[Try again.-&gt;try-again]]&lt;/span&gt;(stop:)]
 ]
-}</tw-passagedata>
+}
+(set: $tryagain to it + 1)</tw-passagedata>
 <tw-passagedata pid="108" name="skimming above the pavement" tags="" position="4977,1638">&lt;script&gt;sounds.thememusic.stop();&lt;/script&gt;You see Mi-o still [running straight on]&lt;running|(click: ?running)[, away from you].
 
 And Harper Lee [behind her]&lt;behindher|(click: ?behindher)[, undiminished].
@@ -2353,14 +2380,15 @@ you are an accomplice
 
 (live: 5s)[(click-replace: ?accomplice)[&lt;span onclick=&quot;sounds.footstepsrunning.fade(0.5, 0, 2000); sounds.thunderstorm_old.fade(0.5, 0, 2000); sounds.thememusic.fade(1, 0, 2000);&quot;&gt;[[you are an accomplice-&gt;accompliceend]]&lt;/span&gt;](stop:)]</tw-passagedata>
 <tw-passagedata pid="113" name="accompliceend" tags="" position="4977,2637">{
-&lt;div id=&quot;fade&quot;&gt;
+&lt;script&gt;holo.setStyle(&#39;space4&#39;);&lt;/script&gt;&lt;div id=&quot;fade&quot;&gt;
 &lt;img src=&quot;http://seerscatalogue.github.io/seers/animations/plant0.png&quot; class=&quot;anim bottom&quot;&gt;
 &lt;img src=&quot;http://seerscatalogue.github.io/seers/animations/plant1.png&quot; class=&quot;anim top&quot;&gt;
 &lt;/div&gt;
 }
-(live: 6s)[There are other ways this can end.(stop:)]
-(live: 8s)[&lt;script&gt;sounds.footstepsrunning.stop(); sounds.thememusic.stop(); sounds.thunderstorm_old.stop();&lt;/script&gt;[[Start again.-&gt;Start]](stop:)]
+(live: 2s)[There are other ways this can end.(stop:)]
 
+(live: 3s)[&lt;script&gt;sounds.footstepsrunning.stop(); sounds.thememusic.stop(); sounds.thunderstorm_old.stop();&lt;/script&gt;[[Try again.-&gt;try-again]](stop:)]
+(set: $tryagain to it + 1)
 &lt;style&gt;
 #fade {
   position:relative;
@@ -2726,16 +2754,15 @@ Jane exchanges glances with Mr. Bud.
 
 &quot;[[That&#39;s my price-&gt;my price ruby]],&quot; you say.</tw-passagedata>
 <tw-passagedata pid="162" name="Ask for the gun." tags="" position="1755,1219">&lt;span onclick=&quot;sounds.thememusic.fade(1, 0, 5000);&quot;&gt;[[&quot;Give me the gun,&quot; you say.-&gt;Demand gun]]&lt;/span&gt;</tw-passagedata>
-<tw-passagedata pid="163" name="yesruby" tags="" position="1425,1384">&quot;All right,&quot; Jane says, warily.
-
-She walks around the desk and puts the [ruby]&lt;ruby| in your hands.
-
-{
+<tw-passagedata pid="163" name="yesruby" tags="" position="1425,1384">{
 &lt;div id=&quot;fade&quot;&gt;
 &lt;img src=&quot;http://seerscatalogue.github.io/seers/animations/hand.png&quot;&gt;
 &lt;img src=&quot;http://seerscatalogue.github.io/seers/animations/ruby.png&quot; class=&quot;top&quot;&gt;
 &lt;/div&gt;
+
+&quot;All right,&quot; Jane says, warily.
 }
+She walks around the desk and puts the [ruby]&lt;ruby| in your hands.
 
 (click: ?ruby)[It [glints]&lt;glints|.
 
@@ -2838,7 +2865,7 @@ You are running and you feel alive and free, accomplished somehow, even though y
 [[&quot;Straight away?&quot;-&gt;Straight away]]</tw-passagedata>
 <tw-passagedata pid="174" name="youreclimbing" tags="" position="4812,898">==&gt;&lt;==
 //[[Why weight?-&gt;weight4]]//</tw-passagedata>
-<tw-passagedata pid="175" name="Go back home" tags="" position="4992,1109">&lt;span onclick=&quot;sounds.thememusic.stop(); sounds.nicebirds.stop();&quot;&gt;[[You have more reading to do.-&gt;Start]]&lt;/span&gt;</tw-passagedata>
+<tw-passagedata pid="175" name="Go back home" tags="" position="5064,1216">&lt;span onclick=&quot;sounds.thememusic.stop(); sounds.nicebirds.stop();&quot;&gt;[[You have more reading to do.-&gt;try-again]]&lt;/span&gt;(set: $tryagain to it + 1)</tw-passagedata>
 <tw-passagedata pid="176" name="Is it a ruse" tags="" position="4978,2220">[You do not know how you will ever find Mi-o, or Jane, or Mr Bud.]&lt;find|
 
 (click: ?find)[[[You do not know how you will get home.-&gt;You do not know how you will get home]]]</tw-passagedata>
@@ -2869,16 +2896,15 @@ You are running and you feel alive and free, accomplished somehow, even though y
 (click: ?murmurs)[Then Mr. Bud seems to rouse himself from his reverie, [[addressing you in a sterner tone-&gt;The explanation]].]]]
 
 (set: $gem to &quot;ruby&quot;) </tw-passagedata>
-<tw-passagedata pid="179" name="yesdiamond" tags="" position="1553,1437">&quot;All right,&quot; Jane says, warily.
-
-She walks around the desk and puts the [diamond]&lt;diamond| in your hands.
-
-{
+<tw-passagedata pid="179" name="yesdiamond" tags="" position="1553,1437">{
 &lt;div id=&quot;fade&quot;&gt;
 &lt;img src=&quot;http://seerscatalogue.github.io/seers/animations/hand.png&quot;&gt;
 &lt;img src=&quot;http://seerscatalogue.github.io/seers/animations/diamond.png&quot; class=&quot;top&quot;&gt;
 &lt;/div&gt;
+
+&quot;All right,&quot; Jane says, warily.
 }
+She walks around the desk and puts the [diamond]&lt;diamond| in your hands.
 
 (click: ?diamond)[It [flashes]&lt;flashes|.
 
@@ -2934,13 +2960,13 @@ Mr. Bud [clears his throat]&lt;clears|.]]
 
 &quot;You must promise to be a loyal accomplice,&quot; he says.
 
-* [[Agree-&gt;yesruby]]
+* [[Agree.-&gt;yesruby]]
 * [[Say never mind; demand to go.-&gt;Agree to leave.]]</tw-passagedata>
 <tw-passagedata pid="183" name="my price diamond" tags="" position="1563,1312">You try to put on a brave smile. Jane and Mr. Bud are observing you with a care that you think at first might be fear, or respect. But after a moment you realize that this is not fear or respect or even wariness. They are watching you as two birdwatchers might watch as a bird; as two zookeepers at the zoo.
 
 &quot;You must promise to be a loyal accomplice,&quot; he says.
 
-* [[Agree-&gt;yesdiamond]]
+* [[Agree.-&gt;yesdiamond]]
 * [[Say never mind; demand to go.-&gt;Agree to leave.]]</tw-passagedata>
 <tw-passagedata pid="184" name="Tell them impostor" tags="" position="1960,1524">&lt;script&gt;sounds.thememusic.play(); sounds.thememusic.fade(0, 1,  500);&lt;/script&gt;You smirk. &quot;[So I&#39;m an impostor]&lt;impostor|,&quot; you say.
 
@@ -3154,10 +3180,7 @@ They are all women, with [gold circlets]&lt;circlets| in their hair.
 
 
 ]]</tw-passagedata>
-<tw-passagedata pid="201" name="Splash1" tags="" position="62,165">&lt;script&gt;$(&#39;tw-story&#39;).css({width: &#39;100%&#39;, margin: &#39;auto&#39;}); holo.setBgCustom(&#39;#cccccc&#39;, 0);&lt;/script&gt;&lt;div class=&quot;aligner&quot;&gt;[[&lt;img src=&quot;http://seerscatalogue.github.io/seers/images/splash/splash0000.png&quot; class=&quot;aligned&quot; width=&quot;100%&quot;&gt;-&gt;Splash2]]&lt;/div&gt;</tw-passagedata>
-<tw-passagedata pid="202" name="Splash2" tags="" position="82,332">&lt;script&gt;sounds.streetlight.play();&lt;/script&gt;&lt;div class=&quot;aligner&quot;&gt;[[&lt;img src=&quot;http://seerscatalogue.github.io/seers/images/splash/splash0001.png&quot; class=&quot;aligned&quot; width=&quot;100%&quot;&gt;-&gt;Splash3]]&lt;/div&gt;</tw-passagedata>
-<tw-passagedata pid="203" name="Splash3" tags="" position="234,412">&lt;div class=&quot;aligner&quot;&gt;[[&lt;img src=&quot;http://seerscatalogue.github.io/seers/images/splash/splash0002.png&quot; class=&quot;aligned&quot; width=&quot;100%&quot;&gt;-&gt;Start]]&lt;/div&gt;</tw-passagedata>
-<tw-passagedata pid="204" name="Ivy House next" tags="" position="2701,768">The car stops. [You get out.]&lt;carstops|
+<tw-passagedata pid="201" name="Ivy House next" tags="" position="2701,768">The car stops. [You get out.]&lt;carstops|
 
 (click: ?carstops)[Mi-o bends to murmur something through the taxi window, to the [driver]&lt;driver|.(click-replace: ?driver)[driver who has never met your eyes]
 
@@ -3167,28 +3190,28 @@ Soundlessly, the taxi soundlessly disappears up the road.
 
 [[Here you are]].
 ]</tw-passagedata>
-<tw-passagedata pid="205" name="hesitate" tags="" position="2459,467">Before you can answer the plane encounters a touch of turbulence. Everyone, even Mi-o, [clutches their arm-rests]&lt;clutch|.
+<tw-passagedata pid="202" name="hesitate" tags="" position="2459,467">Before you can answer the plane encounters a touch of turbulence. Everyone, even Mi-o, [clutches their arm-rests]&lt;clutch|.
 
 (click: ?clutch)[When the aircraft levels off she seems to have forgotten her question. She lifts the pair of headphones that sits around her neck and puts on a film about a priest and a footballer in [[the war-&gt;back to magazine]] against Franco.]</tw-passagedata>
-<tw-passagedata pid="206" name="talkmuch" tags="" position="2249,326">You and Mi-o do not talk much on the journey to the Other $yourCity. She seems mildly irritated that you are there. But you find yourself fascinated by her: every one of her movements seems absolutely precise, |deliberate&gt;[absolutely deliberate].(click: ?deliberate)[&lt;div id=&quot;fadein&quot; class=&quot;aligner&quot;&gt;[[&lt;img src=&quot;http://seerscatalogue.github.io/seers/images/pats_illustrations/takeoff.png&quot; class=&quot;aligned&quot; width=&quot;100%&quot;&gt;-&gt;landing]]&lt;/div&gt;
+<tw-passagedata pid="203" name="talkmuch" tags="" position="2249,326">You and Mi-o do not talk much on the journey to the Other $yourCity. She seems mildly irritated that you are there. But you find yourself fascinated by her: every one of her movements seems absolutely precise, |deliberate&gt;[absolutely deliberate].(click: ?deliberate)[&lt;div id=&quot;fadein&quot; class=&quot;aligner&quot;&gt;[[&lt;img src=&quot;http://seerscatalogue.github.io/seers/images/pats_illustrations/takeoff.png&quot; class=&quot;aligned&quot; width=&quot;100%&quot;&gt;-&gt;landing]]&lt;/div&gt;
 ]</tw-passagedata>
-<tw-passagedata pid="207" name="welcomeivy" tags="" position="2991,459">&quot;Thanks,&quot; Mi-o says. Your partner looks around, from the desk to the sign to a gem-encrusted chalice, under a display case. For the first time you sense the paucity of her life experience: Mi-o doesn&#39;t really know what a person does, [a normal person]&lt;normal|, a math teacher in an art gallery.
+<tw-passagedata pid="204" name="welcomeivy" tags="" position="2991,459">&quot;Thanks,&quot; Mi-o says. Your partner looks around, from the desk to the sign to a gem-encrusted chalice, under a display case. For the first time you sense the paucity of her life experience: Mi-o doesn&#39;t really know what a person does, [a normal person]&lt;normal|, a math teacher in an art gallery.
 
 (click: ?normal)[The gallery attendant is gazing at Mi-o with an expression that seems very slowly dawning. [You need to do something.]&lt;dosomething|
 
 (click: ?dosomething)[&quot;Is there an admission fee?&quot; you say. &quot;We&#39;ve never been here before.&quot;
 
 You have drawn away the attendant&#39;s attention. They smile at you. &quot;The exhibition&#39;s free,&quot; they say. &quot;Just through that doorway. [[Let me know if you need anything.]]&quot;]]</tw-passagedata>
-<tw-passagedata pid="208" name="go into the exhibition" tags="" position="2982,858">&lt;script&gt;holo.setStyle(&#39;space5nopics&#39;);sounds.roomtone.stop(); sounds.meanbirds.stop();&lt;/script&gt;The galleries of the Ivy House are [large, bright rooms]&lt;rooms|.(click: ?rooms)[
+<tw-passagedata pid="205" name="go into the exhibition" tags="" position="2982,858">&lt;script&gt;holo.setStyle(&#39;space5nopics&#39;);sounds.roomtone.stop(); sounds.meanbirds.stop();&lt;/script&gt;The galleries of the Ivy House are [large, bright rooms]&lt;rooms|.(click: ?rooms)[
 
 They are filled with sunlight - beams caught at rooftop and filtered down through mirrored passages. ]
 
 The floors are all whitewashed timber and they creak as you and Mi-o walk. It smells like oranges and lilac. The current exhibition is a collection of [[baseball paintings-&gt;keepgoing]].</tw-passagedata>
-<tw-passagedata pid="209" name="playingbadge" tags="" position="3282,205">&lt;script&gt;holo.setStyle(&#39;space5nopics&#39;);&lt;/script&gt;Finally Mi-o stops. You are in the gallery&#39;s deepest chamber, the room farthest from the entrance. It is not a painting of [a baseball player]&lt;baseball|, or a [baseball diamond]&lt;baseball|, or a [ball]&lt;baseball| with its red stitching.
+<tw-passagedata pid="206" name="playingbadge" tags="" position="3282,205">&lt;script&gt;holo.setStyle(&#39;space5nopics&#39;);&lt;/script&gt;Finally Mi-o stops. You are in the gallery&#39;s deepest chamber, the room farthest from the entrance. It is not a painting of [a baseball player]&lt;baseball|, or a [baseball diamond]&lt;baseball|, or a [ball]&lt;baseball| with its red stitching.
 
 (click: ?baseball)[It is a painting of green grass and a cloud of red dust, a fine cloud of dust along an empty baseline, [[obscuring everything-&gt;baseball painting]].]</tw-passagedata>
-<tw-passagedata pid="210" name="I don&#39;t know how it happened.&quot;" tags="" position="3467,156">[[&quot;Let&#39;s pick everything up,&quot; the attendant says after a moment.]]</tw-passagedata>
-<tw-passagedata pid="211" name="Best ending" tags="" position="4954,125">&lt;script&gt;holo.setStyle(&#39;space1&#39;); sounds.river.stop();&lt;/script&gt;When you emerge back up through the opening, into light and onto solid ground, you find yourself blinking in [the bright sun of outside]&lt;outside|.
+<tw-passagedata pid="207" name="I don&#39;t know how it happened.&quot;" tags="" position="3467,156">[[&quot;Let&#39;s pick everything up,&quot; the attendant says after a moment.]]</tw-passagedata>
+<tw-passagedata pid="208" name="Best ending" tags="" position="4954,125">&lt;script&gt;holo.setStyle(&#39;space1&#39;); sounds.river.stop();&lt;/script&gt;When you emerge back up through the opening, into light and onto solid ground, you find yourself blinking in [the bright sun of outside]&lt;outside|.
 
 (click: ?outside)[You are no longer in the Ivy House; you are [on the bare street]&lt;street|, where Mi-o has tossed her still-raying flashlight.
 
@@ -3201,16 +3224,16 @@ The floors are all whitewashed timber and they creak as you and Mi-o walk. It sm
 
 
 ]]]</tw-passagedata>
-<tw-passagedata pid="212" name="Straight away" tags="" position="4954,735">[&quot;Yes,&quot;]&lt;yes| Mi-o says. (click: ?yes)[[&quot;What are //you// going to do?&quot;]&lt;do|
+<tw-passagedata pid="209" name="Straight away" tags="" position="4954,735">[&quot;Yes,&quot;]&lt;yes| Mi-o says. (click: ?yes)[[&quot;What are //you// going to do?&quot;]&lt;do|
 
 (click: ?do)[[[&quot;I&#39;m going to go home,&quot;-&gt;I&#39;m going to go home]] you say.]]</tw-passagedata>
-<tw-passagedata pid="213" name="behind you" tags="" position="4029,1196">Harper Lee is following. Thirty paces back, with an expression of vicious concentration.
+<tw-passagedata pid="210" name="behind you" tags="" position="4029,1196">Harper Lee is following. Thirty paces back, with an expression of vicious concentration.
 
 There is a large, baseball-sized rock [[in the attendant&#39;s hand]].</tw-passagedata>
-<tw-passagedata pid="214" name="Harper Lee falls back" tags="" position="4744,1762">&quot;They&#39;re gone,&quot; you say. &quot;They gave up.&quot;
+<tw-passagedata pid="211" name="Harper Lee falls back" tags="" position="4744,1762">&quot;They&#39;re gone,&quot; you say. &quot;They gave up.&quot;
 
 But you are both [[listening]] for the sound of the drone.</tw-passagedata>
-<tw-passagedata pid="215" name="off the main road" tags="" position="4488,1922">On the highway, vehicles roar past.
+<tw-passagedata pid="212" name="off the main road" tags="" position="4488,1922">On the highway, vehicles roar past.
 
 Mi-o&#39;s arms are at her sides. She is still holding her stolen prize, wrapped in cloth. She looks very tired.
 
@@ -3220,45 +3243,45 @@ Mi-o&#39;s arms are at her sides. She is still holding her stolen prize, wrapped
 
 [[She gives it to you.]]
 </tw-passagedata>
-<tw-passagedata pid="216" name="She gives it to you." tags="" position="4470,2072">[[The action is so simple.]]</tw-passagedata>
-<tw-passagedata pid="217" name="The action is so simple." tags="" position="4470,2222">&lt;script&gt;sounds.thunderstorm.play(); sounds.thunderstorm.fade(0, 1, 1000); sounds.footstepsrunning.stop(); sounds.thememusic.stop();&lt;/script&gt;Without the pound, without the chase and the fear, Mi-o once again seems like a mere teenager, a kid. //Lola Radwansky//, say the words on her badge.
+<tw-passagedata pid="213" name="She gives it to you." tags="" position="4470,2072">[[The action is so simple.]]</tw-passagedata>
+<tw-passagedata pid="214" name="The action is so simple." tags="" position="4470,2222">&lt;script&gt;sounds.thunderstorm.play(); sounds.thunderstorm.fade(0, 1, 1000); sounds.footstepsrunning.stop(); sounds.thememusic.stop();&lt;/script&gt;Without the pound, without the chase and the fear, Mi-o once again seems like a mere teenager, a kid. //Lola Radwansky//, say the words on her badge.
 
 The two of you stop, [[standing on the highway&#39;s shoulder]].</tw-passagedata>
-<tw-passagedata pid="218" name="standing on the highway&#39;s shoulder" tags="" position="4470,2372">&quot;How did you get caught up in all this?&quot; you say.
+<tw-passagedata pid="215" name="standing on the highway&#39;s shoulder" tags="" position="4470,2372">&quot;How did you get caught up in all this?&quot; you say.
 
 As  rain begins to fall, Mi-o tucks a strand of hair behind her ear. &quot;I answered an ad in a magazine.&quot;
 
 The road looks shifting and silver, like [[a haunted mirror-&gt;Drizzle]].</tw-passagedata>
-<tw-passagedata pid="219" name="glimpse something" tags="" position="4617,2192">[[She waves.]]</tw-passagedata>
-<tw-passagedata pid="220" name="She waves." tags="" position="4617,2317">One of the approaching cars has begun to slow.
+<tw-passagedata pid="216" name="glimpse something" tags="" position="4617,2192">[[She waves.]]</tw-passagedata>
+<tw-passagedata pid="217" name="She waves." tags="" position="4617,2317">One of the approaching cars has begun to slow.
 
 It scrapes onto the shoulder and [[stops-&gt;itsraining]], the beams of its headlights centered on your bodies.</tw-passagedata>
-<tw-passagedata pid="221" name="&quot;OK, let&#39;s go!&quot; she yells to you." tags="" position="4489,2684">And as you begin to walk toward them, the bag&#39;s wet cloth shifts across [[the object in your hands]].</tw-passagedata>
-<tw-passagedata pid="222" name="Your young escort has disappeared back the way you came." tags="" position="1274,586">&quot;I am Jane,&quot; says the woman behind the desk, &quot;and this is Mr. Bud. Thank you for coming.&quot;
+<tw-passagedata pid="218" name="&quot;OK, let&#39;s go!&quot; she yells to you." tags="" position="4489,2684">And as you begin to walk toward them, the bag&#39;s wet cloth shifts across [[the object in your hands]].</tw-passagedata>
+<tw-passagedata pid="219" name="Your young escort has disappeared back the way you came." tags="" position="1274,586">&quot;I am Jane,&quot; says the woman behind the desk, &quot;and this is Mr. Bud. Thank you for coming.&quot;
 
 &quot;Of course,&quot; you say.
 
 &quot;We need [[an accomplice]].&quot;</tw-passagedata>
-<tw-passagedata pid="223" name="plantsscrap" tags="" position="2197,1942">[This is one way the story ends.]&lt;story|
+<tw-passagedata pid="220" name="plantsscrap" tags="" position="2197,1942">[This is one way the story ends.]&lt;story|
 
 (click: ?story)[&lt;span onclick=&quot;sounds.thememusic.fade(1, 0, 5000);&quot;&gt;[[There are others.-&gt;yes2]]&lt;/span&gt;]</tw-passagedata>
-<tw-passagedata pid="224" name="greenery" tags="" position="2991,208">[You duck under the greenery]&lt;greenery|(click: ?greenery)[,
+<tw-passagedata pid="221" name="greenery" tags="" position="2991,208">[You duck under the greenery]&lt;greenery|(click: ?greenery)[,
 slip through the &lt;span onclick=&quot;sounds.roomtone.fade(2, 0, 2000); sounds.meanbirds.fade(1, 0, 2000);&quot;&gt;[[opening-&gt;threshold]]&lt;/span&gt;]</tw-passagedata>
-<tw-passagedata pid="225" name="great" tags="" position="2986,709">Mi-o is staring into the room just beyond the attendant, the gallery&#39;s [private office]&lt;private| with its desks and its papers; (click: ?private)[and in its far corner, [a locked door]&lt;door|.
+<tw-passagedata pid="222" name="great" tags="" position="2986,709">Mi-o is staring into the room just beyond the attendant, the gallery&#39;s [private office]&lt;private| with its desks and its papers; (click: ?private)[and in its far corner, [a locked door]&lt;door|.
 
 (click: ?door)[&quot;Mi-o,&quot; you say, nudging her, [&quot;let&#39;s go.&quot;]&lt;tearaway|
 
 (click: ?tearaway)[She tears away her gaze.
 
 [[The two of you enter the exhibition-&gt;go into the exhibition]].]]]</tw-passagedata>
-<tw-passagedata pid="226" name="striding" tags="" position="3143,1070">&lt;img src=&quot;http://seerscatalogue.github.io/seers/images/pats_illustrations/baseball-painting2.png&quot; width=&quot;100%&quot; class=&quot;background opacity20&quot;&gt;You come right up to and against the piece and somehow you keep going, turning, tilting, falling in such a way that you slide right across the picture, smear it sideways. You knock into the frame and then continue all the way to the floor. Like two connected pieces, the jostled painting follows you. It scrapes against the wall and topples, falling across your back and shoulders. You feel its weight on your head and then a stretching pop as the canvas is punctured. The flop of fabric, the smell of turpentine, a [clear bright white]&lt;slash| room and a ruined artwork. (set: $painting to &quot;punctured&quot;)
+<tw-passagedata pid="223" name="striding" tags="" position="3143,1070">&lt;img src=&quot;http://seerscatalogue.github.io/seers/images/pats_illustrations/baseball-painting2.png&quot; width=&quot;100%&quot; class=&quot;background opacity20&quot;&gt;You come right up to and against the piece and somehow you keep going, turning, tilting, falling in such a way that you slide right across the picture, smear it sideways. You knock into the frame and then continue all the way to the floor. Like two connected pieces, the jostled painting follows you. It scrapes against the wall and topples, falling across your back and shoulders. You feel its weight on your head and then a stretching pop as the canvas is punctured. The flop of fabric, the smell of turpentine, a [clear bright white]&lt;slash| room and a ruined artwork. (set: $painting to &quot;punctured&quot;)
 
 (click: ?slash)[You raise your eyes and see Mi-o looking. See a certain admiration [there]&lt;there|.
 
 (click: ?there)[You are a terrible wrecker of beauty.
 
 [[//&quot;I am an accomplice//,&quot; you think.-&gt;I am an accomplice]]]]</tw-passagedata>
-<tw-passagedata pid="227" name="Takes a few seconds" tags="" position="3424,1228">The attendant arrives at a run, calling out, &quot;What is it, what happ--?&quot;
+<tw-passagedata pid="224" name="Takes a few seconds" tags="" position="3424,1228">The attendant arrives at a run, calling out, &quot;What is it, what happ--?&quot;
 
 But then they see the $painting painting, and you, and they freeze mid-step.
 
@@ -3267,8 +3290,8 @@ But then they see the $painting painting, and you, and they freeze mid-step.
 (click: ?accident)[[&quot;A terrible accident.&quot;]&lt;accident2|(click-replace: ?accident2)[&quot;A terrible accident,
 [[I fell into the canvas.]]&quot;]]
 </tw-passagedata>
-<tw-passagedata pid="228" name="thenmeet" tags="" position="3467,458">When Mi-o is gone you can see the attendant is staring at you again, and the expression on the attendant&#39;s face is [[not an expression of trust]].</tw-passagedata>
-<tw-passagedata pid="229" name="Whilemio" tags="" position="3591,1062">(set: $minute to &quot;0 minutes&quot;)You kneel on the floor with Harper Lee, picking up the painting you have ruined.
+<tw-passagedata pid="225" name="thenmeet" tags="" position="3467,458">When Mi-o is gone you can see the attendant is staring at you again, and the expression on the attendant&#39;s face is [[not an expression of trust]].</tw-passagedata>
+<tw-passagedata pid="226" name="Whilemio" tags="" position="3591,1062">(set: $minute to &quot;0 minutes&quot;)You kneel on the floor with Harper Lee, picking up the painting you have ruined.
 
 [Yet:]&lt;yet| (click: ?yet)[[you are an accomplice.]&lt;accomplice|
 (click: ?accomplice)[* Wait [0 minutes]&lt;minute0| and then [hit the attendant on the head]&lt;attendant|. (The amount of time you wait is important.)]]
@@ -3313,47 +3336,48 @@ But then they see the $painting painting, and you, and they freeze mid-step.
 (click-replace: ?minute12)[[13 minutes]&lt;minute13|(set: $minute to &quot;13 minutes&quot;)]
 (click-replace: ?minute13)[[14 minutes]&lt;minute14|(set: $minute to &quot;14 minutes&quot;)]
 (click-replace: ?minute14)[[15 minutes]&lt;minute15|(set: $minute to &quot;15 minutes&quot;)]</tw-passagedata>
-<tw-passagedata pid="230" name="Mioplea" tags="" position="3608,1506">[Mi-o fires the gun. There is this soft pop, like someone has pried open a bottle of champagne.]&lt;champagne|
+<tw-passagedata pid="227" name="Mioplea" tags="" position="3608,1506">[Mi-o fires the gun. There is this soft pop, like someone has pried open a bottle of champagne.]&lt;champagne|
 
 (click: ?champagne)[[The bullet strikes the attendant in the shoulder and immediately they fall to the ground. A shock of red pushes through the cloth of Harper Lee&#39;s cream suit, like a sudden flower. Their scarf wafts slowly to the floor.]&lt;bullet|
 
 (click: ?bullet)[[With horror, you stare at Harper Lee&#39;s prone form. The attendant is staring back at you, blinking, blinking. &quot;You f--&quot; they begin to say.]&lt;backat|
 
 (click: ?backat)[But you don&#39;t hear anything more because there is another champagne pop and [[Mi-o has fired a shot at you]].]]]</tw-passagedata>
-<tw-passagedata pid="231" name="the drone is buzzing low" tags="" position="4852,1634">and you can see it now,
+<tw-passagedata pid="228" name="the drone is buzzing low" tags="" position="4852,1634">and you can see it now,
 like a thick black disc,
 like a floating talisman,
 [[skimming above the pavement]]</tw-passagedata>
-<tw-passagedata pid="232" name="itsraining" tags="" position="4597,2559">Mi-o puts down her hand and walks toward [[the driver&#39;s side]].</tw-passagedata>
-<tw-passagedata pid="233" name="you push back the fabric" tags="" position="4610,2855">[[to see this treasure]]</tw-passagedata>
-<tw-passagedata pid="234" name="to see this treasure" tags="" position="4610,3005">[[this pure pound.-&gt;fabricreveal]]</tw-passagedata>
-<tw-passagedata pid="235" name="go back toward your house" tags="" position="5068,957">[[There&#39;s a little flag above the door, its colour bleached out, with a small symbol at its centre.-&gt;Little flag]]</tw-passagedata>
-<tw-passagedata pid="236" name="Little flag" tags="" position="5211,1119">[[Your key&#39;s still in your pocket.-&gt;Go back home]]&lt;/span&gt;</tw-passagedata>
-<tw-passagedata pid="237" name="Untitled Passage" tags="" position="38,16">[[Begin //The Seers Catalogue//.-&gt;Splash1]]
-
-</tw-passagedata>
-<tw-passagedata pid="238" name="Mag-AROUND TOWN" tags="" position="1033,234">==&gt;
-#####//The Seers Catalogue// &amp;nbsp;&amp;nbsp;&amp;#10041;&amp;nbsp;&amp;nbsp; June, &quot;$topic&quot;
+<tw-passagedata pid="229" name="itsraining" tags="" position="4597,2559">Mi-o puts down her hand and walks toward [[the driver&#39;s side]].</tw-passagedata>
+<tw-passagedata pid="230" name="you push back the fabric" tags="" position="4610,2855">[[to see this treasure]]</tw-passagedata>
+<tw-passagedata pid="231" name="to see this treasure" tags="" position="4610,3005">[[this pure pound.-&gt;fabricreveal]]</tw-passagedata>
+<tw-passagedata pid="232" name="go back toward your house" tags="" position="5068,957">[[There&#39;s a little flag above the door, its colour bleached out, with a small symbol at its centre.-&gt;Little flag]]</tw-passagedata>
+<tw-passagedata pid="233" name="Little flag" tags="" position="5211,1119">[[Your key&#39;s still in your pocket.-&gt;Go back home]]&lt;/span&gt;</tw-passagedata>
+<tw-passagedata pid="234" name="Mag-AROUND TOWN" tags="" position="1033,234">==&gt;
+#####//The Seers Catalogue// &amp;nbsp;&amp;nbsp;&amp;#10041;&amp;nbsp;&amp;nbsp; $month, &quot;$topic&quot;
 &lt;==
 &lt;hr id=&quot;dashed&quot;&gt;
 &lt;img src=&quot;http://seerscatalogue.github.io/seers/images/magIcons/Mag-AROUND.png&quot; id=&quot;inline&quot;&gt;
 ##Around Town
 
 ARTICLEHERE:$topic
+{
 &lt;script&gt;doArticle(&#39;AROUND TOWN&#39;);&lt;/script&gt;&lt;hr id=&quot;symbol&quot;&gt;
-(display: &quot;toc&quot;)</tw-passagedata>
-<tw-passagedata pid="239" name="Mag-PLACES OF NOTE" tags="" position="1194,226">==&gt;
-#####//The Seers Catalogue// &amp;nbsp;&amp;nbsp;&amp;#10041;&amp;nbsp;&amp;nbsp; June, &quot;$topic&quot;
+(display: &quot;toc&quot;)
+}</tw-passagedata>
+<tw-passagedata pid="235" name="Mag-PLACES OF NOTE" tags="" position="1194,226">==&gt;
+#####//The Seers Catalogue// &amp;nbsp;&amp;nbsp;&amp;#10041;&amp;nbsp;&amp;nbsp; $month, &quot;$topic&quot;
 &lt;==
 &lt;hr id=&quot;dashed&quot;&gt;
 &lt;img src=&quot;http://seerscatalogue.github.io/seers/images/magIcons/Mag-PLACES.png&quot; id=&quot;inline&quot;&gt;
 ##Places of Note
 
 ARTICLEHERE:$topic
+{
 &lt;script&gt;doArticle(&#39;PLACES OF NOTE&#39;);&lt;/script&gt;&lt;hr id=&quot;symbol&quot;&gt;
-(display: &quot;toc&quot;)</tw-passagedata>
-<tw-passagedata pid="240" name="Mag-OperationPt1" tags="" position="1112,7">==&gt;
-#####//The Seers Catalogue// &amp;nbsp;&amp;nbsp;&amp;#10041;&amp;nbsp;&amp;nbsp; June, &quot;$topic&quot;
+(display: &quot;toc&quot;)
+}</tw-passagedata>
+<tw-passagedata pid="236" name="Mag-OperationPt1" tags="" position="1111,7">==&gt;
+#####//The Seers Catalogue// &amp;nbsp;&amp;nbsp;&amp;#10041;&amp;nbsp;&amp;nbsp; $month, &quot;$topic&quot;
 &lt;==
 &lt;hr id=&quot;dashed&quot;&gt;
 &lt;img src=&quot;http://seerscatalogue.github.io/seers/images/magIcons/Mag-OperationPt1.png&quot; id=&quot;inline&quot;&gt;
@@ -3364,10 +3388,11 @@ ARTICLEHERE:$topic
 
 &lt;hr id=&quot;symbol&quot;&gt;
 ARTICLEHERE:$topic
-&lt;script&gt;doArticle(&#39;THE OPERATION PT 1&#39;);&lt;/script&gt;&lt;hr id=&quot;symbol&quot;&gt;
-(display: &quot;toc&quot;)</tw-passagedata>
-<tw-passagedata pid="241" name="Mag-REVIEWS" tags="" position="1275,17">==&gt;
-#####//The Seers Catalogue// &amp;nbsp;&amp;nbsp;&amp;#10041;&amp;nbsp;&amp;nbsp; June, &quot;$topic&quot;
+{
+&lt;script&gt;doArticle(&#39;THE OPERATION PT 1&#39;);&lt;/script&gt;&lt;hr id=&quot;symbol&quot;&gt;(display: &quot;toc&quot;)
+}</tw-passagedata>
+<tw-passagedata pid="237" name="Mag-REVIEWS" tags="" position="1276,17">==&gt;
+#####//The Seers Catalogue// &amp;nbsp;&amp;nbsp;&amp;#10041;&amp;nbsp;&amp;nbsp; $month, &quot;$topic&quot;
 &lt;==
 &lt;hr id=&quot;dashed&quot;&gt;
 &lt;img src=&quot;http://seerscatalogue.github.io/seers/images/magIcons/Mag-REVIEWS.png&quot; id=&quot;inline&quot;&gt;
@@ -3375,20 +3400,24 @@ ARTICLEHERE:$topic
 
 &lt;hr id=&quot;symbol&quot;&gt;
 ARTICLEHERE:$topic
+{
 &lt;script&gt;doArticle(&#39;REVIEWS&#39;);&lt;/script&gt;&lt;hr id=&quot;symbol&quot;&gt;
-(display: &quot;toc&quot;)</tw-passagedata>
-<tw-passagedata pid="242" name="Mag-TIPS &amp; TRICKS" tags="" position="1485,237">==&gt;
-#####//The Seers Catalogue// &amp;nbsp;&amp;nbsp;&amp;#10041;&amp;nbsp;&amp;nbsp; June, &quot;$topic&quot;
+(display: &quot;toc&quot;)
+}</tw-passagedata>
+<tw-passagedata pid="238" name="Mag-TIPS &amp; TRICKS" tags="" position="1484,237">==&gt;
+#####//The Seers Catalogue// &amp;nbsp;&amp;nbsp;&amp;#10041;&amp;nbsp;&amp;nbsp; $month, &quot;$topic&quot;
 &lt;==
 &lt;hr id=&quot;dashed&quot;&gt;
 &lt;img src=&quot;http://seerscatalogue.github.io/seers/images/magIcons/Mag-TIPS.png&quot; id=&quot;inline&quot;&gt;
 ##Tips &amp;amp; Tricks
 
 ARTICLEHERE:$topic
+{
 &lt;script&gt;doArticle(&#39;TIPS &amp; TRICKS&#39;);&lt;/script&gt;&lt;hr id=&quot;symbol&quot;&gt;
-(display: &quot;toc&quot;)</tw-passagedata>
-<tw-passagedata pid="243" name="Mag-OperationPt0" tags="" position="1434,15">==&gt;
-#####//The Seers Catalogue// &amp;nbsp;&amp;nbsp;&amp;#10041;&amp;nbsp;&amp;nbsp; June, &quot;$topic&quot;
+(display: &quot;toc&quot;)
+}</tw-passagedata>
+<tw-passagedata pid="239" name="Mag-OperationPt0" tags="" position="1434,15">==&gt;
+#####//The Seers Catalogue// &amp;nbsp;&amp;nbsp;&amp;#10041;&amp;nbsp;&amp;nbsp; $month, &quot;$topic&quot;
 &lt;==
 &lt;hr id=&quot;dashed&quot;&gt;
 &lt;img src=&quot;http://seerscatalogue.github.io/seers/images/magIcons/Mag-OperationPt0.png&quot; id=&quot;inline&quot;&gt;
@@ -3399,20 +3428,24 @@ ARTICLEHERE:$topic
 
 &lt;hr id=&quot;symbol&quot;&gt;
 ARTICLEHERE:$topic
+{
 &lt;script&gt;doArticle(&#39;The Operation pt ˚ø˚&#39;);&lt;/script&gt;&lt;hr id=&quot;symbol&quot;&gt;
-(display: &quot;toc&quot;)</tw-passagedata>
-<tw-passagedata pid="244" name="Mag-STYLE" tags="" position="1667,64">==&gt;
-#####//The Seers Catalogue// &amp;nbsp;&amp;nbsp;&amp;#10041;&amp;nbsp;&amp;nbsp; June, &quot;$topic&quot;
+(display: &quot;toc&quot;)
+}</tw-passagedata>
+<tw-passagedata pid="240" name="Mag-STYLE" tags="" position="1667,64">==&gt;
+#####//The Seers Catalogue// &amp;nbsp;&amp;nbsp;&amp;#10041;&amp;nbsp;&amp;nbsp; $month, &quot;$topic&quot;
 &lt;==
 &lt;hr id=&quot;dashed&quot;&gt;
 &lt;img src=&quot;http://seerscatalogue.github.io/seers/images/magIcons/Mag-STYLE.png&quot; id=&quot;inline&quot;&gt;
 ##Style Section
 
 ARTICLEHERE:$topic
+{
 &lt;script&gt;doArticle(&#39;STYLE&#39;);&lt;/script&gt;&lt;hr id=&quot;symbol&quot;&gt;
-(display: &quot;toc&quot;)</tw-passagedata>
-<tw-passagedata pid="245" name="Mag-OperationPtS" tags="" position="1649,246">==&gt;
-#####//The Seers Catalogue// &amp;nbsp;&amp;nbsp;&amp;#10041;&amp;nbsp;&amp;nbsp; June, &quot;$topic&quot;
+(display: &quot;toc&quot;)
+}</tw-passagedata>
+<tw-passagedata pid="241" name="Mag-OperationPtS" tags="" position="1649,246">==&gt;
+#####//The Seers Catalogue// &amp;nbsp;&amp;nbsp;&amp;#10041;&amp;nbsp;&amp;nbsp; $month, &quot;$topic&quot;
 &lt;==
 &lt;hr id=&quot;dashed&quot;&gt;
 &lt;img src=&quot;http://seerscatalogue.github.io/seers/images/magIcons/Mag-OperationPtS.png&quot; id=&quot;inline&quot;&gt;
@@ -3423,35 +3456,23 @@ ARTICLEHERE:$topic
 
 &lt;hr id=&quot;symbol&quot;&gt;
 ARTICLEHERE:$topic
+{
 &lt;script&gt;doArticle(&#39;The Operation pt ®∑œ&#39;);&lt;/script&gt;&lt;hr id=&quot;symbol&quot;&gt;
-(display: &quot;toc&quot;)</tw-passagedata>
-<tw-passagedata pid="246" name="Mag-PROFILE" tags="" position="1793,96">==&gt;
-#####//The Seers Catalogue// &amp;nbsp;&amp;nbsp;&amp;#10041;&amp;nbsp;&amp;nbsp; June, &quot;$topic&quot;
+(display: &quot;toc&quot;)
+}</tw-passagedata>
+<tw-passagedata pid="242" name="Mag-PROFILE" tags="" position="1793,96">==&gt;
+#####//The Seers Catalogue// &amp;nbsp;&amp;nbsp;&amp;#10041;&amp;nbsp;&amp;nbsp; $month, &quot;$topic&quot;
 &lt;==
 &lt;hr id=&quot;dashed&quot;&gt;
 &lt;img src=&quot;http://seerscatalogue.github.io/seers/images/magIcons/Mag-PROFILE.png&quot; id=&quot;inline&quot;&gt;
 ##Profile
 
 ARTICLEHERE:$topic
+{
 &lt;script&gt;doArticle(&#39;PROFILE&#39;);&lt;/script&gt;&lt;hr id=&quot;symbol&quot;&gt;
-(display: &quot;toc&quot;)</tw-passagedata>
-<tw-passagedata pid="247" name="Credits" tags="" position="238,3">&lt;script&gt;sounds.credits.play(); sounds.credits.fade(0, 1, 1000);&lt;/script&gt;&lt;img src=&quot;http://seerscatalogue.github.io/seers/images/seers-header-transparent.png&quot;&quot; alt=&quot;The Seers Catalogue&quot; style=&quot;display: block; margin: auto;&quot; &gt;
-Created by:
-&lt;center&gt;&lt;a href=&quot;http://thebathwater.com/&quot;&gt;&#39;&#39;James Braithwaite&#39;&#39;&lt;/a&gt;
-&#39;&#39;Patrick McEown&#39;&#39;
-&lt;a href=&quot;http://www.twitter.com/stgramophone&quot;&gt;&#39;&#39;Sean Michaels&#39;&#39;&lt;/a&gt;
-&lt;a href=&quot;http://twitter.com/doam&quot;&gt;&#39;&#39;six a&#39;&#39;&lt;/a&gt;
-&lt;/center&gt;
-Based on a text by Sean Michaels.
-
-Commissioned by &#39;&#39;The Banff Centre Press&#39;&#39;.
-Additional code by Kenny Lozowski.
-
-Main musical theme by &lt;a href=&quot;http://howlarts.net/reve&quot;&gt;r&amp;ecirc;ves sonores&lt;/a&gt; (Nick Schofield + Stefan Christoff, featuring Brahja Waldman).
-Additional music by Logan Miley.
-SFX with help from Tristan Capacchione, Stéphane Larivière &amp;amp; Thibaut Macquart.
-Other sounds by &lt;a href=&quot;https://freesound.org&quot;&gt;Freesound&lt;/a&gt; users acclivity, lwdickens, otherthings, tompallant and trundefly.</tw-passagedata>
-<tw-passagedata pid="248" name="But you got older." tags="" position="599,798">And then one day you picked up a copy of //The Seers Catalogue// from the table.
+(display: &quot;toc&quot;)
+}</tw-passagedata>
+<tw-passagedata pid="243" name="But you got older." tags="" position="599,798">And then one day you picked up a copy of //The Seers Catalogue// from the table.
 
 It was an {
 (either: &quot;March&quot;, &quot;November&quot;, &quot;July&quot;)
@@ -3460,7 +3481,7 @@ It was an {
 }&quot;. You stared at the embossed, silver [letters]&lt;letters2|.
 
 (click: ?letters2)[[[You opened it.-&gt;Opener]]]</tw-passagedata>
-<tw-passagedata pid="249" name="who compiled these pages" tags="" position="30,1031">&lt;img src=&quot;http://seerscatalogue.github.io/seers/images/full_seers_logo.png&quot; alt=&quot;The Seers Catalogue&quot;&gt;On the inside cover of //The Seers Catalogue//, &quot;$topic&quot;, you find your subscriber information:
+<tw-passagedata pid="244" name="who compiled these pages" tags="" position="30,1031">&lt;img src=&quot;http://seerscatalogue.github.io/seers/images/full_seers_logo.png&quot; alt=&quot;The Seers Catalogue&quot;&gt;On the inside cover of //The Seers Catalogue//, &quot;$topic&quot;, you find your subscriber information:
 (set: $yourName to &quot;&quot;)(set: $yourCity to &quot;&quot;)(set: $yourOccupation to &quot;&quot;)(set: $yourPostalcode to &quot;&quot;)(set: $yourCountry to &quot;&quot;)&lt;input type=&quot;text&quot; name=&quot;fyourname&quot; size=&quot;40&quot; placeholder=&quot;Enter your name.&quot; &gt;
 &lt;input type=&quot;text&quot; name=&quot;fyouroccupation&quot;  size=&quot;40&quot; placeholder=&quot;Enter your occupation.&quot; &gt;
 &lt;!-- the following was added/modified by kenny lozowski 2016/02/15 --&gt;&lt;input type=&quot;text&quot; name=&quot;fyourcity&quot;  size=&quot;40&quot; placeholder=&quot;Enter your city.&quot; id=&quot;fyourcity&quot; /&gt;
@@ -3483,17 +3504,17 @@ It was an {
 	]
 ]
 }</tw-passagedata>
-<tw-passagedata pid="250" name="Keysingle" tags="" position="4131,1054">&lt;span onclick=&quot;holo.setStyle(&#39;space4&#39;);&quot;&gt;&lt;div id=&quot;fadein&quot;&gt;[[&lt;img src=&quot;http://seerscatalogue.github.io/seers/images/pats_illustrations/seers_key.png&quot;&gt;
+<tw-passagedata pid="245" name="Keysingle" tags="" position="4131,1054">&lt;span onclick=&quot;holo.setStyle(&#39;space4&#39;);&quot;&gt;&lt;div id=&quot;fadein&quot;&gt;[[&lt;img src=&quot;http://seerscatalogue.github.io/seers/images/pats_illustrations/seers_key.png&quot;&gt;
 -&gt;Greenled]]&lt;/div&gt;&lt;/span&gt;</tw-passagedata>
-<tw-passagedata pid="251" name="these pages" tags="" position="47,1156">&lt;div id=&quot;fadein&quot; class=&quot;aligner&quot;&gt;[[&lt;img src=&quot;http://seerscatalogue.github.io/seers/images/pats_illustrations/erasmus_new_smaller.jpg&quot; width=&quot;80%&quot; class=&quot;aligned&quot;&gt;-&gt;these pages2]]&lt;/div&gt;</tw-passagedata>
-<tw-passagedata pid="252" name="howtosubscribe" tags="" position="16,1433">Under the painting there is information on how to subscribe to //The Seers Catalogue//:
+<tw-passagedata pid="246" name="these pages" tags="" position="47,1156">&lt;div id=&quot;fadein&quot; class=&quot;aligner&quot;&gt;[[&lt;img src=&quot;http://seerscatalogue.github.io/seers/images/pats_illustrations/erasmus_new_smaller.jpg&quot; width=&quot;80%&quot; class=&quot;aligned&quot;&gt;-&gt;these pages2]]&lt;/div&gt;</tw-passagedata>
+<tw-passagedata pid="247" name="howtosubscribe" tags="" position="16,1433">Under the painting there is information on how to subscribe to //The Seers Catalogue//:
 
 [[&lt;img src=&quot;http://seerscatalogue.github.io/seers/images/mailing_address.png&quot; class=&quot;&quot; width=&quot;75%&quot;&gt;-&gt;when you asked]] </tw-passagedata>
-<tw-passagedata pid="253" name="keepgoing" tags="" position="3065,0">&lt;div id=&quot;fadein&quot; class=&quot;aligner&quot;&gt;[[&lt;img src=&quot;http://seerscatalogue.github.io/seers/images/pats_illustrations/Malevich_baseball_diamond_smaller.jpg&quot; width=&quot;100%&quot; class=&quot;aligned&quot;&gt;-&gt;more about exhibit]]&lt;/div&gt;</tw-passagedata>
-<tw-passagedata pid="254" name="more about exhibit" tags="" position="3190,38">//Run Home//, reads a panel on the wall. These are canvases like murals, huge beautiful oils; they remind you of Monet&#39;s water-lilies, at the Musée de l&#39;Orangerie in Paris, only instead of the ponds and bridges of Giverny [these images are of diamonds and shortstops, curveballs and catchers&#39; mitts]&lt;diamonds|.
+<tw-passagedata pid="248" name="keepgoing" tags="" position="3065,0">&lt;div id=&quot;fadein&quot; class=&quot;aligner&quot;&gt;[[&lt;img src=&quot;http://seerscatalogue.github.io/seers/images/pats_illustrations/Malevich_baseball_diamond_smaller.jpg&quot; width=&quot;100%&quot; class=&quot;aligned&quot;&gt;-&gt;more about exhibit]]&lt;/div&gt;</tw-passagedata>
+<tw-passagedata pid="249" name="more about exhibit" tags="" position="3190,38">//Run Home//, reads a panel on the wall. These are canvases like murals, huge beautiful oils; they remind you of Monet&#39;s water-lilies, at the Musée de l&#39;Orangerie in Paris, only instead of the ponds and bridges of Giverny [these images are of diamonds and shortstops, curveballs and catchers&#39; mitts]&lt;diamonds|.
 
 (click: ?diamonds)[You walk among the paintings, admiring the runners clad in white, the fly balls suspended in the air. //[[I&#39;d be a pitcher-&gt;keepgoingfurther]]//, you think. //[[No, I&#39;d be a batter-&gt;keepgoingfurther]].//]</tw-passagedata>
-<tw-passagedata pid="255" name="baseball painting" tags="" position="3282,354">&lt;div class=&quot;aligner&quot; id=&quot;fadein&quot; &gt;[&lt;img src=&quot;http://seerscatalogue.github.io/seers/images/pats_illustrations/baseball-painting2.png&quot; width=&quot;100%&quot; class=&quot;aligned&quot;&gt;]&lt;painting|&lt;/div&gt;(click: ?painting)[[&quot;This is the one,&quot;]&lt;says1| Mi-o says.
+<tw-passagedata pid="250" name="baseball painting" tags="" position="3282,354">&lt;div class=&quot;aligner&quot; id=&quot;fadein&quot; &gt;[&lt;img src=&quot;http://seerscatalogue.github.io/seers/images/pats_illustrations/baseball-painting2.png&quot; width=&quot;100%&quot; class=&quot;aligned&quot;&gt;]&lt;painting|&lt;/div&gt;(click: ?painting)[[&quot;This is the one,&quot;]&lt;says1| Mi-o says.
 
 (click: ?says1)[[&quot;&#39;The one&#39; what?&quot;]&lt;says2| you say.
 
@@ -3504,20 +3525,20 @@ It was an {
 You stand side by side, looking into [the cloud of dust]&lt;dust|.
 (click: ?dust)[
 [[&quot;Ruin it,&quot;-&gt;Ruin it]] she says.]]]](stop:)]</tw-passagedata>
-<tw-passagedata pid="256" name="last look" tags="" position="4267,1402">&lt;div class=&quot;aligner&quot;&gt;[[&lt;img src=&quot;http://seerscatalogue.github.io/seers/images/curtainshapes/curtainshapes0002.png&quot; class=&quot;aligned&quot; width=&quot;100%&quot;&gt;-&gt;The necromancer]]&lt;/div&gt;
+<tw-passagedata pid="251" name="last look" tags="" position="4267,1402">&lt;div class=&quot;aligner&quot;&gt;[[&lt;img src=&quot;http://seerscatalogue.github.io/seers/images/curtainshapes/curtainshapes0002.png&quot; class=&quot;aligned&quot; width=&quot;100%&quot;&gt;-&gt;The necromancer]]&lt;/div&gt;
 
 </tw-passagedata>
-<tw-passagedata pid="257" name="the light of Marius&#39;s lamps" tags="" position="484,673">[[But you got older.]]</tw-passagedata>
-<tw-passagedata pid="258" name="Untitled Passage 1" tags="" position="1363,1753">Double-click this passage to edit it.</tw-passagedata>
-<tw-passagedata pid="259" name="manholemorning" tags="" position="1399,2028">&lt;img src=&quot;http://seerscatalogue.github.io/seers/images/pats_illustrations/Seers-Manhole.png&quot; width=&quot;50%&quot;&gt;
+<tw-passagedata pid="252" name="the light of Marius&#39;s lamps" tags="" position="484,673">[[But you got older.]]</tw-passagedata>
+<tw-passagedata pid="253" name="Untitled Passage 1" tags="" position="1363,1753">Double-click this passage to edit it.</tw-passagedata>
+<tw-passagedata pid="254" name="manholemorning" tags="" position="1399,2028">&lt;img src=&quot;http://seerscatalogue.github.io/seers/images/pats_illustrations/Seers-Manhole.png&quot; width=&quot;50%&quot;&gt;
 You ride the roads. You cross the whole damn city, past the gabled mansions and the towering skyscrapers, the massive scientific complexes, the parks and the disc of the ferris wheel. [[And you arrive at the address.]]</tw-passagedata>
-<tw-passagedata pid="260" name="manholenight" tags="" position="1551,2122">&lt;img src=&quot;http://seerscatalogue.github.io/seers/images/pats_illustrations/Seers-Manhole.png&quot; width=&quot;50%&quot;&gt;
+<tw-passagedata pid="255" name="manholenight" tags="" position="1551,2122">&lt;img src=&quot;http://seerscatalogue.github.io/seers/images/pats_illustrations/Seers-Manhole.png&quot; width=&quot;50%&quot;&gt;
 You narrowly miss an open manhole, concealed [in the middle of the street]&lt;street|.
 
 (click: ?street)[[[And you arrive at the address.-&gt;And you arrive at the address.]]]</tw-passagedata>
-<tw-passagedata pid="261" name="altar" tags="" position="4522,1455">&lt;div id=&quot;fadein&quot;&gt;[[&lt;img src=&quot;http://seerscatalogue.github.io/seers/images/pats_illustrations/the-pound.png&quot;&gt;-&gt;altarnext]]&lt;/div&gt;
+<tw-passagedata pid="256" name="altar" tags="" position="4522,1455">&lt;div id=&quot;fadein&quot;&gt;[[&lt;img src=&quot;http://seerscatalogue.github.io/seers/images/pats_illustrations/the-pound.png&quot;&gt;-&gt;altarnext]]&lt;/div&gt;
 </tw-passagedata>
-<tw-passagedata pid="262" name="altarnext" tags="" position="4486,1580">&lt;div id=&quot;fadein&quot;&gt;&lt;img src=&quot;http://seerscatalogue.github.io/seers/images/pats_illustrations/the-pound.png&quot; class=&quot;background opacity10&quot;&gt;&lt;/div&gt;It is completely dark down here: still no light except for the white line of Mi-o&#39;s flashlight [sketching out]&lt;sketching| the edges of whatever this is.
+<tw-passagedata pid="257" name="altarnext" tags="" position="4486,1580">&lt;div id=&quot;fadein&quot;&gt;&lt;img src=&quot;http://seerscatalogue.github.io/seers/images/pats_illustrations/the-pound.png&quot; class=&quot;background opacity10&quot;&gt;&lt;/div&gt;It is completely dark down here: still no light except for the white line of Mi-o&#39;s flashlight [sketching out]&lt;sketching| the edges of whatever this is.
 
 (click: ?sketching)[(replace: ?sketching)[[sketching out]&lt;sketching2|] A stone pillar, waist-high, supporting a small metallic object.]
 
@@ -3525,13 +3546,13 @@ You narrowly miss an open manhole, concealed [in the middle of the street]&lt;st
 
 (click: ?water)[This slender moat is only about a foot wide, a narrow canal that you could easily [[jump across]].
 ]]</tw-passagedata>
-<tw-passagedata pid="263" name="back to magazine" tags="" position="2584,504">You turn back to your magazine.
+<tw-passagedata pid="258" name="back to magazine" tags="" position="2584,504">You turn back to your magazine.
 
 Naturally, it is an issue of //The Seers Catalogue//.
 
 &lt;img id=&quot;shapescycle&quot; style=&quot;cursor: pointer;&quot; src=&quot;http://seerscatalogue.github.io/seers/images/shapes/shapes0000.png&quot; width=&quot;100%&quot; onclick=&quot;vars.shapesCycle = (vars.shapesCycle + 1) % 20; $(&#39;#shapescycle&#39;).attr(&#39;src&#39;, &#39;http://seerscatalogue.github.io/seers/images/shapes/shapes00&#39; + holo.padNumber(vars.shapesCycle, 2) + &#39;.png&#39;);&quot;&gt;
 [[Hours pass.-&gt;the war]]</tw-passagedata>
-<tw-passagedata pid="264" name="Testing Start" tags="" position="282,176">{
+<tw-passagedata pid="259" name="Testing Start" tags="" position="95,184">{
 (set: $topic to &quot;KEYS&quot;)
 (set: $yourName to &quot;test testson&quot;)
 (set: $yourCity to &quot;testville&quot;)
@@ -3550,8 +3571,6 @@ Naturally, it is an issue of //The Seers Catalogue//.
 
 [[strange paths]]
 
-[[Credits]] 
-
 (live:100ms)[
 $topic
 $yourName
@@ -3560,7 +3579,26 @@ $yourOccupation
 $yourCountry
 $yourPostalcode
 ]</tw-passagedata>
-<tw-passagedata pid="265" name="muskilluminated dark" tags="" position="4852,2504">[[&lt;div id=&quot;fadein&quot;&gt;&lt;img src=&quot;http://seerscatalogue.github.io/seers/images/pats_illustrations/seers_muskox.png&quot;&gt;&lt;/div&gt;-&gt;illuminated dark]]</tw-passagedata>
+<tw-passagedata pid="260" name="muskilluminated dark" tags="" position="4852,2504">[[&lt;div id=&quot;fadein&quot;&gt;&lt;img src=&quot;http://seerscatalogue.github.io/seers/images/pats_illustrations/seers_muskox.png&quot;&gt;&lt;/div&gt;-&gt;illuminated dark]]</tw-passagedata>
+<tw-passagedata pid="261" name="The world goes dark" tags="" position="3987,1664">&lt;script&gt;sounds.thememusic.stop();&lt;/script&gt;
+==&gt;&lt;==
+&lt;div id=&quot;fadein&quot;&gt;&lt;img src=&quot;http://seerscatalogue.github.io/seers/images/pats_illustrations/lock.png&quot; width=&quot;50%&quot; class=&quot;aligned&quot;&gt;&lt;/div&gt;
+(live: 3s)[[[Try again.-&gt;try-again]](stop:)]
+(set: $tryagain to it + 1)</tw-passagedata>
+<tw-passagedata pid="262" name="try-again" tags="" position="869,713">{
+&lt;script&gt;sounds.magazinetheme.play(); sounds.magazinetheme.fade(0, 0.1, 1000); holo.setStyle(&#39;spacemagazine&#39;);&lt;/script&gt;
+&lt;table cellspacing=&quot;10&quot; border=&quot;0&quot; width=&quot;100%&quot;&gt;&lt;tr&gt;&lt;td border=&quot;0&quot;&gt;
+[&lt;img src=&quot;http://seerscatalogue.github.io/seers/images/magCovers/sport.jpg&quot; width=200&gt;]&lt;sport|
+&lt;/td&gt;&lt;td&gt;
+[&lt;img src=&quot;http://seerscatalogue.github.io/seers/images/magCovers/keys.jpg&quot; width=200&gt;]&lt;keys|
+&lt;/td&gt;&lt;td&gt;
+[&lt;img  src=&quot;http://seerscatalogue.github.io/seers/images/magCovers/gardens.jpg&quot; width=200&gt;]&lt;gardens|
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+}
+
+(click: ?gardens)[(set: $topic to &quot;GARDENS&quot;)(set: $month to &quot;June&quot;)(goto: &quot;strange paths&quot;)]
+(click: ?sport)[(set: $topic to &quot;SPORT&quot;)(set: $month to &quot;October&quot;)(goto: &quot;strange paths&quot;)]
+(click: ?keys)[(set: $topic to &quot;KEYS&quot;)(set: $month to &quot;February&quot;)(goto: &quot;strange paths&quot;)]</tw-passagedata>
 </tw-storydata>
 
 

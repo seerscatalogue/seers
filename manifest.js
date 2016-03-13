@@ -108,13 +108,9 @@ window.manifest = [
   "images/pats_illustrations/seers_key.png",
   "images/pats_illustrations/seers_lcok.png",
   "images/pats_illustrations/seers_muskox.png",
-  "images/pats_illustrations/seers_muskox2.png",
   "images/pats_illustrations/takeoff.png",
   "images/pats_illustrations/the-pound.png",
   "images/pats_illustrations/the_book.png",
   "images/pats_illustrations/weights.png",
-  "images/seers-header-transparent.png",
-  "images/splash/splash0000.png",
-  "images/splash/splash0001.png",
-  "images/splash/splash0002.png"
+  "images/seers_grid_tile_faded.png"
 ]
