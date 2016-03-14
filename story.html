@@ -190,6 +190,7 @@ tw-passage img {
 	margin: auto;
 }
 
+
 .enchantment-link, tw-link {
 	font-weight: 300;
 }
@@ -277,6 +278,7 @@ a {
     100% { opacity:1; }
 }
 
+	
 #fade {
   position:relative;
   width: 586px;
@@ -290,6 +292,15 @@ a {
   width: 586px;
   height: 400px;
 }
+
+tw-icon.undo, tw-icon.redo {
+	display: none;
+}
+
+
+
+
+
 
 
 
@@ -1212,6 +1223,9 @@ window.magData = /** start copy paste */ {
 
 
 
+
+
+
 </script><tw-passagedata pid="1" name="Start" tags="" position="460,255">&lt;script&gt;holo.setStyle(&#39;space1&#39;); setTimeout(function() { sounds.thememusic.play(); sounds.thememusic.fade(0, 1, 1000);}, 2000);&lt;/script&gt;You&#39;re in a room with a window,
 and light is [streaming through the window]&lt;c2|(click: ?c2)[,
 like light reflected on water(link: &quot;.&quot;)[.
@@ -1267,17 +1281,14 @@ A painting of someone in folded velvet garments, dark colours, like from a bygon
 (click: ?thinking)[A strange expression danced across his lips. &quot;Oh yes?&quot; he said. &quot;It isn&#39;t cheap.&quot;
 
 &quot;That&#39;s [OK]&lt;ok|,&quot; you said. (click: ?ok)[&quot;It&#39;s [[an investment]].&quot;]](stop:)]</tw-passagedata>
-<tw-passagedata pid="13" name="an investment" tags="" position="607,1325">He gave you an issue to take with you on the bus when you left that day.
+<tw-passagedata pid="13" name="an investment" tags="" position="607,1324">He gave you an issue to take with you on the bus when you left that day.
 
 &quot;I have always liked this magazine,&quot; he said. &quot;It is the only magazine I ever found that seems to pose as many questions as it &lt;span onclick=&quot;sounds.thememusic.fade(1, 0, 5000);&quot;&gt;[[answers]]&lt;/span&gt;.&quot;</tw-passagedata>
 <tw-passagedata pid="14" name="answers" tags="" position="750,1314">{
-&quot;It has led me down some [strange paths]&lt;strangepaths|,&quot; Uncle Marius said.
+[&quot;It has led me down some [strange paths]&lt;strangepaths|,&quot; Uncle Marius said.]&lt;paths2|
 
-&lt;br&gt;&lt;br&gt;(click: ?strangepaths)[&lt;script&gt;holo.setStyle(&#39;space1&#39;);&lt;/script&gt;&lt;div class=&quot;aligner&quot; id=&quot;fadein&quot;&gt;[[&lt;img src=&quot;http://seerscatalogue.github.io/seers/images/pats_illustrations/garden-house.png&quot; class=&quot;aligned&quot; width=&quot;100%&quot;&gt;-&gt;strange paths]]&lt;/div&gt;
-(replace: ?strangepaths)[[[strange paths]]]
-]
-}
-</tw-passagedata>
+(click: ?strangepaths)[(replace: ?paths2)[&lt;div class=&quot;aligner&quot; id=&quot;fadein&quot;&gt;[[&lt;img src=&quot;http://seerscatalogue.github.io/seers/images/pats_illustrations/garden-house.png&quot; class=&quot;aligned&quot; width=&quot;100%&quot;&gt;-&gt;strange paths]]&lt;/div&gt;]]
+}</tw-passagedata>
 <tw-passagedata pid="15" name="strange paths" tags="" position="726,530">&lt;script&gt;sounds.thememusic.stop();&lt;/script&gt;(if: $tryagain is 0)[&lt;script&gt;sounds.magazinetheme.play(); sounds.magazinetheme.fade(0, 0.1, 1000); holo.setStyle(&#39;spacemagazine&#39;);&lt;/script&gt;]
 &lt;div style=&quot;display:none&quot;&gt;$topic&lt;/div&gt;&lt;script&gt;window.currentTopic = $(&quot;tw-expression[name=&#39;topic&#39;]&quot;).first().text().toLowerCase();&lt;/script&gt;
 (display: &quot;toc&quot;)
@@ -1449,7 +1460,7 @@ As you are flipping between pages, you find yourself staring curiously at the //
 (click: ?boxes)[They would seem like classified ads except that most of the boxes are filled-in, or partly filled-in: the [[writing]] is crisscrossed and backgrounded in patterns, hatches and crosshatches, squiggles that make them hard to read.]]
 
 } </tw-passagedata>
-<tw-passagedata pid="19" name="writing" tags="" position="1011,482">You scan the boxes&#39; headlines.
+<tw-passagedata pid="19" name="writing" tags="" position="1011,482">&lt;script&gt;sounds.magazinetheme.stop();&lt;/script&gt;You scan the boxes&#39; headlines.
 ==&gt;&lt;==
 (text-style: &quot;rumble&quot;)[
 (either: &quot;//THOUSANDS OF CATS FOR SALE//&quot;, &quot;//THE TINIEST HOUSE YOU CAN BUY//&quot;, &quot;//UNLOCK YOUR GSP CPS PHONE//&quot;)
@@ -1478,7 +1489,7 @@ As you are flipping between pages, you find yourself staring curiously at the //
 
 
 </tw-passagedata>
-<tw-passagedata pid="21" name="You look up from the page." tags="" position="1033,632">(set: $toccount to 0)&lt;script&gt;holo.setBg(0.2); holo.setTextLight(); sounds.shorttheme.play();&lt;/script&gt;It is as if you are waking from a reverie. Outside the window, the sun has gone behind a cloud.
+<tw-passagedata pid="21" name="You look up from the page." tags="" position="1033,631">(set: $toccount to 0)&lt;script&gt;holo.setBg(0.2); holo.setTextLight(); sounds.shorttheme.play();&lt;/script&gt;It is as if you are waking from a reverie. Outside the window, the sun has gone behind a cloud.
 
 [The city seems grey, unreal.]&lt;unreal|
 
@@ -1631,7 +1642,7 @@ You wipe your eyes and pack some things and, outside, [get on a bicycle]&lt;vehi
 
 (click: ?door)[This is bewildering. You stand at the end of the end of the front walk, between two hedges, and stare at the place on the wall [[where the door should sit]].
 ]]</tw-passagedata>
-<tw-passagedata pid="33" name="where the door should sit" tags="" position="1917,1994">There&#39;s a gravel walk around the exterior of the building and you follow it under equidistant black windows. The windows are just taller than you, too high to see in.
+<tw-passagedata pid="33" name="where the door should sit" tags="" position="1916,1994">There&#39;s a gravel walk around the exterior of the building and you follow it under equidistant black windows. The windows are just taller than you, too high to see in.
 
 {
 &lt;div id=&quot;fade&quot;&gt;
@@ -1935,7 +1946,7 @@ And you shout too, &quot;I&#39;m so sorry! [Help!]&lt;help|&quot; (if: $painting
 The attendant&#39;s pink scarf has become unknotted as they ran. As they look from you to the canvas, to Mi-o, evaluating, their fingers tuck the scarf&#39;s fabric back into place.
 
 You have the sense the attendant [[has not decided]] whether or not to believe you.</tw-passagedata>
-<tw-passagedata pid="70" name="has not decided" tags="" position="3602,65">[&quot;I just tripped and fell,&quot; you say.]&lt;tripped|
+<tw-passagedata pid="70" name="has not decided" tags="" position="3601,65">[&quot;I just tripped and fell,&quot; you say.]&lt;tripped|
 
 (click: ?tripped)[&quot;Yes,&quot; agrees Mi-o. &quot;A shoelace or maybe a loose floorboard. It is terrible!&quot;
 
@@ -2143,7 +2154,7 @@ And life feels limitless.]
 ]]]
 
 </tw-passagedata>
-<tw-passagedata pid="85" name="try to bash" tags="" position="4018,180">It doesn&#39;t work. Harper Lee bats away the extinguisher and staggers back.
+<tw-passagedata pid="85" name="try to bash" tags="" position="4018,181">It doesn&#39;t work. Harper Lee bats away the extinguisher and staggers back.
 
 (live: 2s)[But then you throw the extinguisher at them(stop:)]
 (live: 3s)[&amp;amp; as they catch it you run at them, shoving,(stop:)]
@@ -2172,7 +2183,7 @@ And life feels limitless.]
 (click: ?highway)[&lt;script&gt;sounds.thunder_alone.play();&lt;/script&gt;Then from behind you you hear the sound of the gallery door thrust open and you and Mi-o &lt;span onclick=&quot;sounds.footstepsrunning.play(); sounds.footstepsrunning.fade(0, 0.5, 5000);&quot;&gt;[[run and run and run]]&lt;/span&gt;.]
 ]
 </tw-passagedata>
-<tw-passagedata pid="88" name="flash in the sun" tags="" position="2845,765">Mi-o reaches around takes a lanyard out of a shoulder bag. She holds it out to you.
+<tw-passagedata pid="88" name="flash in the sun" tags="" position="2846,764">Mi-o reaches around takes a lanyard out of a shoulder bag. She holds it out to you.
 
 &quot;What&#39;s this?&quot; you say.
 
@@ -2180,9 +2191,10 @@ And life feels limitless.]
 
 You accept the lanyard and its badge. There&#39;s a hologram of your face, a caption stating:
 
-$yourName
-//$yourOccupation//
-
+==&gt;&lt;==
+&lt;div style=&quot;font-family: &#39;Lucida Console&#39;, Monaco, monospace&quot;&gt;$yourName
+//$yourOccupation//&lt;/div&gt;
+&lt;==
 Mi-o puts her own badge around her neck. It has her face, but the name given is Lola Radwansky. Occupation: //Math teacher.//
 
 &quot;[[C&#39;mon-&gt;C&#39;mon]],&quot; she says.</tw-passagedata>
@@ -2301,7 +2313,7 @@ Mi-o is talking to the driver through his lowered window.
 
 (click: ?goal)[&lt;div id=&quot;fadein&quot;&gt;[&lt;img src=&quot;http://seerscatalogue.github.io/seers/images/pats_illustrations/chalice-bag-01.png&quot;&gt;]&lt;chalice1|&lt;/div&gt;
 
-(click-replace: ?chalice1)[[&lt;img src=&quot;http://seerscatalogue.github.io/seers/images/pats_illustrations/chalice-bag-02.png&quot;&gt;]&lt;chalice2|
+(click-replace: ?chalice1)[[&lt;img src=&quot;http://seerscatalogue.github.io/seers/images/pats_illustrations/chalice-bag-02.png&quot; width=&quot;100%&quot;&gt;]&lt;chalice2|
 (click: ?chalice2)[You expected to see a silvery cone, an object of pure hematite, the yearned-for dream of Jane and Mr Bud.
 
 Instead this is [a jewelled bowl]&lt;bowl|, a kind of chalice, with incredible gold work, dozens of gleaming dark blue gems.
@@ -2478,7 +2490,7 @@ She is [[leaning her shoulder]] into the heavy, unlocked door.</tw-passagedata>
 <tw-passagedata pid="123" name="port" tags="" position="4377,287">&lt;script&gt;holo.setStyle(&#39;space6stairs&#39;);&lt;/script&gt;On the other side of the doorway, [[a glowing staircase]] leads down.</tw-passagedata>
 <tw-passagedata pid="124" name="a glowing staircase" tags="" position="4378,442">You and Mi-o [pass through]&lt;pass| the threshold.
 
-(click: ?pass)[&lt;script&gt;sounds.cavern1.play();  sounds.cavern1.fade(0, 1, 9000);&lt;/script&gt;You are tiptoeing down glowing steps - steps of clouded glass that are [lit]&lt;lit| from within. (click: ?lit)[The stairway glows in corals, blues and greens. ]The walls are cold [stone]&lt;stone|. (click: ?stone)[They have been painted over with a thin white coat but you can see there are images under the paint, figures and messages not quite legible.]
+(click: ?pass)[&lt;script&gt;sounds.gallerymusic.fade(0.1, 0, 1000); sounds.cavern1.play();  sounds.cavern1.fade(0, 1, 9000);&lt;/script&gt;You are tiptoeing down glowing steps - steps of clouded glass that are [lit]&lt;lit| from within. (click: ?lit)[The stairway glows in corals, blues and greens. ]The walls are cold [stone]&lt;stone|. (click: ?stone)[They have been painted over with a thin white coat but you can see there are images under the paint, figures and messages not quite legible.]
 
 At the bottom of the stairs the passage widens into [[a spacious hall.-&gt;a spacious hall]]]
 
@@ -2494,9 +2506,9 @@ At the bottom of the stairs the passage widens into [[a spacious hall.-&gt;a spa
 <tw-passagedata pid="127" name="Push the cloth aside to see the painting." tags="" position="4382,1066">You grasp the corner of the piece of cloth and move it [aside]&lt;aside|.
 (click: ?aside)[&lt;div id=&quot;fadein&quot;&gt;[&lt;img src=&quot;http://seerscatalogue.github.io/seers/images/curtainshapes/curtainshapes0000.png&quot;&gt;]&lt;curtain1|&lt;/div&gt;]
 
-(click-replace: ?curtain1)[[&lt;img src=&quot;http://seerscatalogue.github.io/seers/images/curtainshapes/curtainshapes0001.png&quot;&gt;]&lt;curtain2|]
+(click-replace: ?curtain1)[[&lt;img src=&quot;http://seerscatalogue.github.io/seers/images/curtainshapes/curtainshapes0001.png&quot; width=&quot;100%&quot;&gt;]&lt;curtain2|]
 
-(click-replace: ?curtain2)[[&lt;img src=&quot;http://seerscatalogue.github.io/seers/images/curtainshapes/curtainshapes0002.png&quot;&gt;]&lt;curtain3|]
+(click-replace: ?curtain2)[[&lt;img src=&quot;http://seerscatalogue.github.io/seers/images/curtainshapes/curtainshapes0002.png&quot; width=&quot;100%&quot;&gt;]&lt;curtain3|]
 
 (click: ?curtain3)[(goto: &quot;eyeseyes&quot;)]</tw-passagedata>
 <tw-passagedata pid="128" name="Keep going down the hall." tags="" position="4507,7">&lt;script&gt;holo.setStyle(&#39;space6ground&#39;);&lt;/script&gt;You turn the corner into a new hall where every surface is covered in ceramic tile. Each of the white tiles is hand-painted in a plain style, with only the necessary strokes to convey meaning; there are [images]&lt;images| [of farmers, poppy fields, castles with turrets.]&lt;turrets|
@@ -2697,7 +2709,7 @@ You find you&#39;re not listening to Mi-o as you run; you can&#39;t understand h
 (click: ?mio)[As she rejoins you her white beam catches on the [[badge]] that swings around your neck.
 
 ]]]</tw-passagedata>
-<tw-passagedata pid="151" name="badge" tags="" position="4812,597">&lt;script&gt;sounds.dronesound.stop();&lt;/script&gt;It says you are a [$youroccupation]&lt;itsays|.
+<tw-passagedata pid="151" name="badge" tags="" position="4812,597">&lt;script&gt;sounds.dronesound.stop();&lt;/script&gt;It says you are a [$yourOccupation]&lt;itsays|.
 (click: ?itsays)[You are an [accomplice]&lt;accomplice|.
 
 (click: ?accomplice)[You stand side by side at the foot of the ladder and squint up through the darkness. [There is no sign of light.]&lt;light|
@@ -2863,7 +2875,7 @@ You are running and you feel alive and free, accomplished somehow, even though y
 [[&quot;Straight away?&quot;-&gt;Straight away]]</tw-passagedata>
 <tw-passagedata pid="174" name="youreclimbing" tags="" position="4812,898">==&gt;&lt;==
 //[[Why weight?-&gt;weight4]]//</tw-passagedata>
-<tw-passagedata pid="175" name="Go back home" tags="" position="5064,1216">&lt;span onclick=&quot;sounds.thememusic.stop(); sounds.nicebirds.stop();&quot;&gt;[[You have more reading to do.-&gt;try-again]]&lt;/span&gt;(set: $tryagain to it + 1)</tw-passagedata>
+<tw-passagedata pid="175" name="Go back home" tags="" position="5064,1215">&lt;script&gt;sounds.thememusic.fade(1, 0, 1000);&lt;/script&gt;&lt;span onclick=&quot;sounds.thememusic.stop(); sounds.nicebirds.stop();&quot;&gt;[[You have more reading to do.-&gt;try-again]]&lt;/span&gt;(set: $tryagain to it + 1)</tw-passagedata>
 <tw-passagedata pid="176" name="Is it a ruse" tags="" position="4978,2220">[You do not know how you will ever find Mi-o, or Jane, or Mr Bud.]&lt;find|
 
 (click: ?find)[[[You do not know how you will get home.-&gt;You do not know how you will get home]]]</tw-passagedata>
@@ -3507,7 +3519,7 @@ It was an {
 }</tw-passagedata>
 <tw-passagedata pid="245" name="Keysingle" tags="" position="4131,1054">&lt;span onclick=&quot;holo.setStyle(&#39;space4&#39;);&quot;&gt;&lt;div id=&quot;fadein&quot;&gt;[[&lt;img src=&quot;http://seerscatalogue.github.io/seers/images/pats_illustrations/seers_key.png&quot;&gt;
 -&gt;Greenled]]&lt;/div&gt;&lt;/span&gt;</tw-passagedata>
-<tw-passagedata pid="246" name="these pages" tags="" position="47,1156">&lt;div id=&quot;fadein&quot; class=&quot;aligner&quot;&gt;[[&lt;img src=&quot;http://seerscatalogue.github.io/seers/images/pats_illustrations/erasmus_new_smaller.jpg&quot; width=&quot;80%&quot; class=&quot;aligned&quot;&gt;-&gt;these pages2]]&lt;/div&gt;</tw-passagedata>
+<tw-passagedata pid="246" name="these pages" tags="" position="47,1156">&lt;div id=&quot;fadein&quot; class=&quot;aligner&quot;&gt;[[&lt;img src=&quot;http://seerscatalogue.github.io/seers/images/pats_illustrations/erasmus_new_smaller.jpg&quot; width=&quot;80%&quot; class=&quot;aligned&quot;&gt;-&gt;these pages2]]&lt;/div&gt;(set: $yourName to ucfirst($yourName))(set: $yourCity to ucfirst($yourCity))(set: $yourOccupation to ucfirst($yourOccupation))</tw-passagedata>
 <tw-passagedata pid="247" name="howtosubscribe" tags="" position="16,1433">Under the painting there is information on how to subscribe to //The Seers Catalogue//:
 
 [[&lt;img src=&quot;http://seerscatalogue.github.io/seers/images/mailing_address.png&quot; class=&quot;&quot; width=&quot;75%&quot;&gt;-&gt;when you asked]] </tw-passagedata>
@@ -3586,7 +3598,7 @@ $yourPostalcode
 (live: 3s)[[[Try again.-&gt;try-again]](stop:)]
 (set: $tryagain to it + 1)</tw-passagedata>
 <tw-passagedata pid="261" name="try-again" tags="" position="869,713">{
-&lt;script&gt;sounds.magazinetheme.play(); sounds.magazinetheme.fade(0, 0.1, 1000); holo.setStyle(&#39;spacemagazine&#39;);&lt;/script&gt;
+&lt;script&gt;sounds.thememusic.stop(); sounds.magazinetheme.play(); sounds.magazinetheme.fade(0, 0.1, 1000); holo.setStyle(&#39;spacemagazine&#39;);&lt;/script&gt;
 &lt;table cellspacing=&quot;10&quot; border=&quot;0&quot; width=&quot;100%&quot;&gt;&lt;tr&gt;&lt;td border=&quot;0&quot;&gt;
 [&lt;img src=&quot;http://seerscatalogue.github.io/seers/images/magCovers/sport.jpg&quot; width=200&gt;]&lt;sport|
 &lt;/td&gt;&lt;td&gt;
