@@ -113,5 +113,7 @@ window.manifest = [
   "images/pats_illustrations/the_book.png",
   "images/pats_illustrations/weights.png",
   "images/seers_grid_tile_faded.png",
-  "story.html"
-]
+  "story.html",
+  "js/howler.min.js",
+  "js/perlin.js"
+];

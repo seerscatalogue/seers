@@ -461,8 +461,8 @@ window.vars = {
 $(function () {
 
 	////////Begin mag script
-$.getScript("https://code.createjs.com/createjs-2015.11.26.min.js", function(data, textStatus, jqxhr) {
-$.getScript("https://cdn.rawgit.com/josephg/noisejs/master/perlin.js", function(data, textStatus, jqxhr) {
+$.getScript("js/createjs-2015.11.26.min.js", function(data, textStatus, jqxhr) {
+$.getScript("js/perlin.js", function(data, textStatus, jqxhr) {
 ////////Paste into here!
 
 
@@ -689,7 +689,7 @@ $.getScript("https://cdn.rawgit.com/josephg/noisejs/master/perlin.js", function(
 
   //Load our sound library, Howler, and attach our sounds to the window.
 	//See examples and documentation for Howler at https://github.com/goldfire/howler.js/tree/2.0
-  $.getScript("https://cdn.rawgit.com/goldfire/howler.js/2.0/howler.min.js", function(data, textStatus, jqxhr) {
+  $.getScript("js/howler.min.js", function(data, textStatus, jqxhr) {
     window.sounds = {
       cavern1: new Howl({
         src: ['http://seerscatalogue.github.io/seers/audio/cavern1.ogg'],
