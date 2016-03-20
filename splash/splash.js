@@ -368,7 +368,7 @@ function clearWarning() { //eslint-disable-line
 var result = UAParser();
 
 var isSupportedDeviceType = testSupportedDeviceType(result.device.type || '');
-var isSupportedBrowser = testSupportedBrowser(result.browser.name || '');
+var isSupportedBrowser = !(result.os.name === 'iOS') && testSupportedBrowser(result.browser.name || '');
 
 if(isSupportedBrowser && isSupportedDeviceType) {
   document.addEventListener("DOMContentLoaded", initLoader);
