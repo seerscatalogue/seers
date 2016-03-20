@@ -1,8 +1,11 @@
 /* eslint no-var:0 vars-on-top:0 */
 /* eslint-env node:false es6:false */
-/* global createjs vanillaModal */
-var canvas, queue, stage, loaderBar, bgRect, fullLoaderBar, fullLoaderText, beginButton;
+/* global createjs vanillaModal UAParser */
+
+var canvas, queue, stage, loaderBar, bgRect, fullLoaderBar, fullLoaderText, beginButton, fullQueue;
 var bgs, bg1, bg2, fg;
+var ambientSound, music, flickerSound;
+var bgSwapTimeout, flickerLoopTimeout;
 
 var interactionEnabled = false;
 
@@ -24,8 +27,20 @@ var toLoad = [
   'splash/begin.png'
 ];
 
-function init() {
-  canvas = document.querySelector('#splash');
+function initLoader() {
+  var container = document.querySelector('#splashcontainer');
+
+  canvas = document.createElement('canvas');
+  canvas.width = 800;
+  canvas.height = 500;
+
+  var wordmark = document.createElement('img');
+  wordmark.src = 'images/commissioned_wordmark.png';
+
+  document.querySelector('.parent').style.minHeight = '604px';
+
+  container.appendChild(canvas);
+  container.appendChild(wordmark);
 
   stage = new createjs.Stage(canvas);
   stage.enableMouseOver(10);
@@ -93,7 +108,7 @@ function handleMouseMove(e) {
 function beginFullLoad() {
   var man = window.manifest;
 
-  var fullQueue = new createjs.LoadQueue();
+  fullQueue = new createjs.LoadQueue();
   fullQueue.on('progress', function(e) {
     var g = fullLoaderBar.graphics;
 
@@ -183,7 +198,23 @@ function startSplash() {
   beginButton.alpha = 0;
   beginButton.cursor = 'pointer';
   beginButton.on("mousedown", function() {
-    location.replace('story.html');
+    // location.replace('story.html');
+    var storyXml = fullQueue.getResult('story.html', true);
+
+    stage.removeAllChildren();
+    stage.removeAllEventListeners();
+    createjs.Ticker.removeAllEventListeners();
+    createjs.Sound.removeAllSounds();
+
+    canvas = queue = stage = loaderBar = bgRect = fullLoaderBar = fullLoaderText = beginButton = fullQueue = null;
+    bgs = bg1 = bg2 = fg = null;
+    ambientSound = music = flickerSound = null;
+    clearTimeout(bgSwapTimeout);
+    clearTimeout(flickerLoopTimeout);
+
+    var doc = document.open("text/html");
+    doc.write(storyXml);
+    doc.close();
   });
 
   fullLoaderBar = new createjs.Shape();
@@ -222,7 +253,7 @@ function startSplash() {
       stage.removeChild(loaderBar);
 
       interactionEnabled = true;
-      var ambientSound = createjs.Sound.play('splash/flyover-edit.ogg', { volume: 0, loop: -1 });
+      ambientSound = createjs.Sound.play('splash/flyover-edit.ogg', { volume: 0, loop: -1 });
       createjs.Tween
         .get(ambientSound)
         .to({volume:1}, 1500);
@@ -250,7 +281,7 @@ function startSplash() {
         .to({alpha:1}, 2000);
 
       //Fade in music.
-      var music = createjs.Sound.play('audio/Seers-Theme-Nick-new.ogg', { volume: 0, delay: 15000 });
+      music = createjs.Sound.play('audio/Seers-Theme-Nick-new.ogg', { volume: 0, delay: 15000 });
       createjs.Tween
         .get(music)
         .to({volume:0})
@@ -265,7 +296,7 @@ function tick(event) {
 }
 
 function doFlicker() {
-  var flickerSound = createjs.Sound.play('splash/flicker.ogg', { volume: 0 });
+  flickerSound = createjs.Sound.play('splash/flicker.ogg', { volume: 0 });
 
   createjs.Tween
     .get(flickerSound)
@@ -288,8 +319,8 @@ function doFlicker() {
     .wait(100)
     .call(function() { bgs.swapChildren(bg1, bg2); });
 
-  setTimeout(function() { bgs.swapChildren(bg1, bg2); }, 14300);
-  setTimeout(doFlicker, flickerSound.duration + 8000);
+  bgSwapTimeout = setTimeout(function() { bgs.swapChildren(bg1, bg2); }, 14300);
+  flickerLoopTimeout = setTimeout(doFlicker, flickerSound.duration + 8000);
 }
 
 function lerp(a, b, t) {
@@ -302,5 +333,87 @@ function clamp01(v) {
   return v;
 }
 
-document.addEventListener("DOMContentLoaded", init);
+function testSupportedDeviceType(deviceType) {
+  var blacklistedDeviceTypes = ['console', 'mobile', 'tablet', 'smarttv', 'wearable', 'embedded'];
 
+  var blacklisted = false;
+  blacklistedDeviceTypes.forEach(function(dt) {
+    if(deviceType.substr(0, dt.length) === dt) {
+      blacklisted = true;
+    }
+  });
+  return !blacklisted;
+}
+
+function testSupportedBrowser(browserName) {
+  var chromelikes = ['Chrome', 'Chromium', 'Opera', 'Vivaldi'];
+  var fflikes = ['Firefox', 'IceCat', 'Iceweasel'];
+
+  var supported = false;
+
+  chromelikes.concat(fflikes).forEach(function(b) {
+    if(browserName.substr(0, b.length) === b) {
+      supported = true;
+    }
+  });
+  return supported;
+}
+
+var infobox;
+function clearWarning() { //eslint-disable-line
+  infobox.remove();
+  initLoader();
+}
+
+var result = UAParser();
+
+var isSupportedDeviceType = testSupportedDeviceType(result.device.type || '');
+var isSupportedBrowser = testSupportedBrowser(result.browser.name || '');
+
+if(isSupportedBrowser && isSupportedDeviceType) {
+  document.addEventListener("DOMContentLoaded", initLoader);
+}
+else {
+  document.addEventListener("DOMContentLoaded", function() {
+    var container = document.querySelector('#splashcontainer');
+    infobox = document.createElement('div');
+    infobox.style.maxWidth = '400px';
+
+    var info;
+    if(!isSupportedBrowser) {
+      var lines = [
+        "<div style='text-align: center;'><img src='images/pats_illustrations/seers_key.png' style='width: 200px;'/></div>",
+        "<p>Unfortunately, <i>The Seers Catalogue</i> won't work in your browser.</p>",
+        "<p>The software can't understand all its mysteries.</p>"
+      ];
+
+      if(!isSupportedDeviceType) {
+        lines = lines.concat([
+          "<p>The Editors invite you to roll up to a computer, put on your headphones, and",
+          "return again to seerscatalogue.com.</p>"
+        ]);
+      }
+      lines = lines.concat([
+        "<p>Try <a href='https://www.google.com/chrome/browser/index.html'>Chrome</a> or",
+        "<a href='https://www.mozilla.org/firefox/'>Firefox</a> on desktop. (It's worth",
+        "the journey.)</p>"
+      ]);
+
+      info = lines.join(' ');
+    }
+    else if(!isSupportedDeviceType) {
+      info = [
+        "<div style='text-align: center;'><img src='images/full_seers_circle_logo_cropped.png' style='width: 200px;'/></div>",
+        "<p>From where we're standing, it looks like your device might not be the best",
+        "way to experience The Seers Catalogue.</p>",
+        "<p>The Editors invite you to roll up to a computer, put on your headphones, and",
+        "return again to seerscatalogue.com.</p>",
+        "<p>(Secrets await.)</p>",
+        "<p><br /><small>If you're sure you'd like to proceed anyway, <a href='#' onclick='clearWarning()'>click here</a>.</small></p>"
+      ].join(' ');
+    }
+
+    infobox.innerHTML = info;
+    container.appendChild(infobox);
+  });
+}

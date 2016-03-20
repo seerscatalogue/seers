@@ -11,12 +11,12 @@
 
 <tw-story></tw-story>
 
-<tw-storydata name="The Seers Catalogue" startnode="1" creator="Twine" creator-version="2.0.10" ifid="31499EFC-AE44-468D-9D58-0173DAD2E598" format="Harlowe-mod" options="" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">@import url(http://fonts.googleapis.com/css?family=Roboto:400,300,500,300italic,400italic,500italic|Roboto+Slab:400,300|Playfair+Display:400,400italic);
+<tw-storydata name="The Seers Catalogue" startnode="262" creator="Twine" creator-version="2.0.10" ifid="31499EFC-AE44-468D-9D58-0173DAD2E598" format="Harlowe-mod" options="" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">@import url(http://fonts.googleapis.com/css?family=Roboto:400,300,500,300italic,400italic,500italic|Roboto+Slab:400,300|Playfair+Display:400,400italic);
 
 html {
 	font-family: 'Roboto', sans-serif;
 	font-weight: 300;
-	background-color: #ffffff;
+	background-color: #000000;
 	color: #333333;
 }
 
@@ -381,7 +381,85 @@ tw-icon.undo, tw-icon.redo {
 
 window.harlowe = Engine;
 
-////////Begin mag script
+window.doArticle = function(article) {
+  var p = document.querySelector('tw-passage');
+  p.innerHTML = p.innerHTML.replace(/ARTICLEHERE:<tw-expression type="variable" name="topic">(.+?)<\/tw-expression>/g, function(match, topic) {
+    var dat = window.magData[article][topic.toLowerCase()];
+    if(dat) {
+      var a = dat.text;
+      if(dat.image1) {
+        a = a + "<br><img src='http://seerscatalogue.github.io/seers/" + dat.image1 + "'>";
+}
+    if(dat.image2) {
+      a = a + "<br><img src='http://seerscatalogue.github.io/seers/" + dat.image2 + "'>";
+}
+			window.currentArticle = article;
+      return a;
+    }
+    else {
+      return "Error! Can't find mag data for article '" + article + "' and topic '" + topic + "'";
+    }
+  });
+};
+
+var html = document.querySelector('html');
+
+//Functions accessible from Twine.
+window.holo = {
+  setStyle(style) {
+    html.setAttribute('class', style);
+  },
+  setBgCustom: function(color, duration) {},
+  setBg: function(t) {},
+  setTextCustom: function(color, linkColor) {},
+  setTextLight: function() {},
+  setTextDark: function() {},
+
+  /**
+  getFromForm changed by kenny lozowski to work around
+  failed jquery selector (probably some twine bug
+  */
+  getFromForm: function(inputName) {
+    //Get the value of the textbox at time of click
+    var newName = $("input[name='" + inputName + "']")[0].value;
+    //Find the hook node based on name and set the text inside
+    var hooks = $("tw-hook");
+    for (var i=0; i<hooks.length; i++) {
+      if ($(hooks[i]).attr("name") == inputName) {
+      $(hooks[i]).text(newName);
+      }
+    }
+  },
+  /**
+   end of code modified by kenny lozowski
+  */
+
+  //From https://stackoverflow.com/questions/1267283/how-can-i-create-a-zerofilled-value-using-javascript
+  padNumber: function(number, width) {
+    width -= number.toString().length;
+    if(width > 0) {
+      return new Array( width + (/\./.test( number ) ? 2 : 1) ).join( '0' ) + number;
+    }
+    return number + ""; // always return a string
+  },
+	drawMag: function() {
+		console.log('CALLED');
+		var canvas = document.getElementById('magcanvas');
+		var ctx = canvas.getContext('2d');
+		var cols = ["green", "red", "yellow"];
+		var col = cols[Math.floor(Math.random()*cols.length)];
+		ctx.fillStyle = col;
+		ctx.fillRect(10, 10, 100, 100);
+	}
+}
+
+window.vars = {
+  shapesCycle: 0
+};
+
+$(function () {
+	
+	////////Begin mag script
 $.getScript("https://code.createjs.com/createjs-2015.11.26.min.js", function(data, textStatus, jqxhr) {
 $.getScript("https://cdn.rawgit.com/josephg/noisejs/master/perlin.js", function(data, textStatus, jqxhr) {
 ////////Paste into here!
@@ -607,93 +685,9 @@ $.getScript("https://cdn.rawgit.com/josephg/noisejs/master/perlin.js", function(
 });
 ////////End mag script
 
-/*
-$(function(){
-  var storyImageUrls = getStoryImageUrls();
-  var stylesheetImageUrls = getStylesheetImageUrls();
-  preloadImages(stylesheetImageUrls.concat(storyImageUrls));
-});
-*/
-
-window.doArticle = function(article) {
-  var p = document.querySelector('tw-passage');
-  p.innerHTML = p.innerHTML.replace(/ARTICLEHERE:<tw-expression type="variable" name="topic">(.+?)<\/tw-expression>/g, function(match, topic) {
-    var dat = window.magData[article][topic.toLowerCase()];
-    if(dat) {
-      var a = dat.text;
-      if(dat.image1) {
-        a = a + "<br><img src='http://seerscatalogue.github.io/seers/" + dat.image1 + "'>";
-}
-    if(dat.image2) {
-      a = a + "<br><img src='http://seerscatalogue.github.io/seers/" + dat.image2 + "'>";
-}
-			window.currentArticle = article;
-      return a;
-    }
-    else {
-      return "Error! Can't find mag data for article '" + article + "' and topic '" + topic + "'";
-    }
-  });
-};
-
-var html = document.querySelector('html');
-
-//Functions accessible from Twine.
-window.holo = {
-  setStyle(style) {
-    html.setAttribute('class', style);
-  },
-  setBgCustom: function(color, duration) {},
-  setBg: function(t) {},
-  setTextCustom: function(color, linkColor) {},
-  setTextLight: function() {},
-  setTextDark: function() {},
-
-  /**
-  getFromForm changed by kenny lozowski to work around
-  failed jquery selector (probably some twine bug
-  */
-  getFromForm: function(inputName) {
-    //Get the value of the textbox at time of click
-    var newName = $("input[name='" + inputName + "']")[0].value;
-    //Find the hook node based on name and set the text inside
-    var hooks = $("tw-hook");
-    for (var i=0; i<hooks.length; i++) {
-      if ($(hooks[i]).attr("name") == inputName) {
-      $(hooks[i]).text(newName);
-      }
-    }
-  },
-  /**
-   end of code modified by kenny lozowski
-  */
-
-  //From https://stackoverflow.com/questions/1267283/how-can-i-create-a-zerofilled-value-using-javascript
-  padNumber: function(number, width) {
-    width -= number.toString().length;
-    if(width > 0) {
-      return new Array( width + (/\./.test( number ) ? 2 : 1) ).join( '0' ) + number;
-    }
-    return number + ""; // always return a string
-  },
-	drawMag: function() {
-		console.log('CALLED');
-		var canvas = document.getElementById('magcanvas');
-		var ctx = canvas.getContext('2d');
-		var cols = ["green", "red", "yellow"];
-		var col = cols[Math.floor(Math.random()*cols.length)];
-		ctx.fillStyle = col;
-		ctx.fillRect(10, 10, 100, 100);
-	}
-}
-
-window.vars = {
-  shapesCycle: 0
-};
-
-//See examples and documentation for Howler at https://github.com/goldfire/howler.js/tree/2.0
-$(function () {
+	
   //Load our sound library, Howler, and attach our sounds to the window.
+	//See examples and documentation for Howler at https://github.com/goldfire/howler.js/tree/2.0
   $.getScript("https://cdn.rawgit.com/goldfire/howler.js/2.0/howler.min.js", function(data, textStatus, jqxhr) {
     window.sounds = {
       cavern1: new Howl({
@@ -891,6 +885,18 @@ credits: new Howl({
         volume: 1 //start at 0, fade in
       })
     }
+		
+		var keys = Object.keys(window.sounds);
+		var toLoad = keys.length;
+		
+		keys.forEach(function(k) {
+			window.sounds[k].once('load', function() {
+				toLoad--;
+				if(toLoad === 0) {
+					window.harlowe.goToPassage('Start');
+				}
+			});
+		});
   });
 });
 
@@ -1228,7 +1234,7 @@ window.magData = /** start copy paste */ {
 
 
 
-</script><tw-passagedata pid="1" name="Start" tags="" position="460,255">&lt;script&gt;holo.setStyle(&#39;space1&#39;); setTimeout(function() { sounds.thememusic.play(); sounds.thememusic.fade(0, 1, 1000);}, 2000);&lt;/script&gt;You&#39;re in a room with a window,
+</script><tw-passagedata pid="1" name="Start" tags="" position="460,255">&lt;script&gt;holo.setStyle(&#39;space1&#39;); sounds.thememusic.play(); sounds.thememusic.fade(0, 1, 1000);&lt;/script&gt;You&#39;re in a room with a window,
 and light is [streaming through the window]&lt;c2|(click: ?c2)[,
 like light reflected on water(link: &quot;.&quot;)[.
 And life feels limitless.]
@@ -3613,6 +3619,225 @@ $yourPostalcode
 (click: ?gardens)[(set: $topic to &quot;GARDENS&quot;)(set: $month to &quot;June&quot;)(goto: &quot;strange paths&quot;)]
 (click: ?sport)[(set: $topic to &quot;SPORT&quot;)(set: $month to &quot;October&quot;)(goto: &quot;strange paths&quot;)]
 (click: ?keys)[(set: $topic to &quot;KEYS&quot;)(set: $month to &quot;February&quot;)(goto: &quot;strange paths&quot;)]</tw-passagedata>
+<tw-passagedata pid="262" name="Preload" tags="" position="445,81">&lt;style type=&#39;text/css&#39;&gt; width: 100%;
+@-webkit-keyframes uil-rolling-anim {
+  0% {
+    -ms-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  50% {
+    -ms-transform: rotate(180deg);
+    -moz-transform: rotate(180deg);
+    -webkit-transform: rotate(180deg);
+    -o-transform: rotate(180deg);
+    transform: rotate(180deg);
+  }
+  100% {
+    -ms-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@-webkit-keyframes uil-rolling-anim {
+  0% {
+    -ms-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  50% {
+    -ms-transform: rotate(180deg);
+    -moz-transform: rotate(180deg);
+    -webkit-transform: rotate(180deg);
+    -o-transform: rotate(180deg);
+    transform: rotate(180deg);
+  }
+  100% {
+    -ms-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@-moz-keyframes uil-rolling-anim {
+  0% {
+    -ms-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  50% {
+    -ms-transform: rotate(180deg);
+    -moz-transform: rotate(180deg);
+    -webkit-transform: rotate(180deg);
+    -o-transform: rotate(180deg);
+    transform: rotate(180deg);
+  }
+  100% {
+    -ms-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@-ms-keyframes uil-rolling-anim {
+  0% {
+    -ms-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  50% {
+    -ms-transform: rotate(180deg);
+    -moz-transform: rotate(180deg);
+    -webkit-transform: rotate(180deg);
+    -o-transform: rotate(180deg);
+    transform: rotate(180deg);
+  }
+  100% {
+    -ms-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@-moz-keyframes uil-rolling-anim {
+  0% {
+    -ms-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  50% {
+    -ms-transform: rotate(180deg);
+    -moz-transform: rotate(180deg);
+    -webkit-transform: rotate(180deg);
+    -o-transform: rotate(180deg);
+    transform: rotate(180deg);
+  }
+  100% {
+    -ms-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@-webkit-keyframes uil-rolling-anim {
+  0% {
+    -ms-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  50% {
+    -ms-transform: rotate(180deg);
+    -moz-transform: rotate(180deg);
+    -webkit-transform: rotate(180deg);
+    -o-transform: rotate(180deg);
+    transform: rotate(180deg);
+  }
+  100% {
+    -ms-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@-o-keyframes uil-rolling-anim {
+  0% {
+    -ms-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  50% {
+    -ms-transform: rotate(180deg);
+    -moz-transform: rotate(180deg);
+    -webkit-transform: rotate(180deg);
+    -o-transform: rotate(180deg);
+    transform: rotate(180deg);
+  }
+  100% {
+    -ms-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@keyframes uil-rolling-anim {
+  0% {
+    -ms-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  50% {
+    -ms-transform: rotate(180deg);
+    -moz-transform: rotate(180deg);
+    -webkit-transform: rotate(180deg);
+    -o-transform: rotate(180deg);
+    transform: rotate(180deg);
+  }
+  100% {
+    -ms-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+.uil-rolling-css {
+  width: 200px;
+  height: 200px;
+}
+.uil-rolling-css &gt; div {
+  width: 200px;
+  height: 200px;
+  position: relative;
+  -ms-animation: uil-rolling-anim 1s linear infinite;
+  -moz-animation: uil-rolling-anim 1s linear infinite;
+  -webkit-animation: uil-rolling-anim 1s linear infinite;
+  -o-animation: uil-rolling-anim 1s linear infinite;
+  animation: uil-rolling-anim 1s linear infinite;
+}
+.uil-rolling-css &gt; div div {
+  position: absolute;
+  width: 200px;
+  height: 100px;
+  border-radius: 1000px 1000px 0 0;
+  border-color: #252424;
+  border-style: solid;
+  border-width: 40px;
+  border-bottom-width: 0;
+}
+.uil-rolling-css &gt; div div:nth-of-type(2) {
+  -ms-transform: translate(0, 50px) rotate(54deg) translate(0, -50px);
+  -moz-transform: translate(0, 50px) rotate(54deg) translate(0, -50px);
+  -webkit-transform: translate(0, 50px) rotate(54deg) translate(0, -50px);
+  -o-transform: translate(0, 50px) rotate(54deg) translate(0, -50px);
+  transform: translate(0, 50px) rotate(54deg) translate(0, -50px);
+}
+&lt;/style&gt;
+
+&lt;div class=&#39;aligner&#39;&gt;&lt;div class=&#39;uil-rolling-css&#39; style=&#39;transform:scale(0.98);&#39;&gt;&lt;div&gt;&lt;div&gt;&lt;/div&gt;&lt;div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;</tw-passagedata>
 </tw-storydata>
 
 
