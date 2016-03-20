@@ -278,7 +278,7 @@ a {
     100% { opacity:1; }
 }
 
-	
+
 #fade {
   position:relative;
   width: 586px;
@@ -296,6 +296,7 @@ a {
 tw-icon.undo, tw-icon.redo {
 	display: none;
 }
+
 
 
 
@@ -458,7 +459,7 @@ window.vars = {
 };
 
 $(function () {
-	
+
 	////////Begin mag script
 $.getScript("https://code.createjs.com/createjs-2015.11.26.min.js", function(data, textStatus, jqxhr) {
 $.getScript("https://cdn.rawgit.com/josephg/noisejs/master/perlin.js", function(data, textStatus, jqxhr) {
@@ -685,7 +686,7 @@ $.getScript("https://cdn.rawgit.com/josephg/noisejs/master/perlin.js", function(
 });
 ////////End mag script
 
-	
+
   //Load our sound library, Howler, and attach our sounds to the window.
 	//See examples and documentation for Howler at https://github.com/goldfire/howler.js/tree/2.0
   $.getScript("https://cdn.rawgit.com/goldfire/howler.js/2.0/howler.min.js", function(data, textStatus, jqxhr) {
@@ -885,10 +886,10 @@ credits: new Howl({
         volume: 1 //start at 0, fade in
       })
     }
-		
+
 		var keys = Object.keys(window.sounds);
 		var toLoad = keys.length;
-		
+
 		keys.forEach(function(k) {
 			window.sounds[k].once('load', function() {
 				toLoad--;
@@ -1234,6 +1235,7 @@ window.magData = /** start copy paste */ {
 
 
 
+
 </script><tw-passagedata pid="1" name="Start" tags="" position="460,255">&lt;script&gt;holo.setStyle(&#39;space1&#39;); sounds.thememusic.play(); sounds.thememusic.fade(0, 1, 1000);&lt;/script&gt;You&#39;re in a room with a window,
 and light is [streaming through the window]&lt;c2|(click: ?c2)[,
 like light reflected on water(link: &quot;.&quot;)[.
@@ -1245,13 +1247,16 @@ And life feels limitless.]
 
 (click: ?years)[Since you were 21, that first year you felt like a grown-up, [a real grown-up.]&lt;grownup| (click: ?grownup)[The kind of grown-up who subscribes to [[magazines-&gt;unclem]].]]]]</tw-passagedata>
 <tw-passagedata pid="3" name="magazines" tags="" position="254,930">&lt;script&gt;holo.setStyle(&#39;space1&#39;);&lt;/script&gt;Now here you are with light streaming through the window and the $month issue of //The Seers Catalogue//, &quot;$topic&quot;, held perfect in your hands.
+&lt;img src=&quot;http://seerscatalogue.github.io/seers/images/pats_illustrations/seers_muskox.png&quot;&gt;
 (set: $muskoxmemory to $muskoxmemory + 1)
 Do you [[keep remembering the muskox-&gt;muskox]]? You have remembered it {
 (if: $muskoxmemory is 1)[
 once](else:)[
 (if: $muskoxmemory is 2)[
 $muskoxmemory times](else:)[
-$muskoxmemory times and you still have not learned anything]].}&lt;img src=&quot;http://seerscatalogue.github.io/seers/images/pats_illustrations/seers_muskox.png&quot;&gt;Or else [[open-&gt;Continue]] the magazine.</tw-passagedata>
+$muskoxmemory times and you still have not learned anything]].}
+
+Or else [[open-&gt;Continue]] the magazine.</tw-passagedata>
 <tw-passagedata pid="4" name="Opener" tags="" position="492,923">The page you opened to had a huge, beautiful photograph of a city. It was somewhere faraway, blue and gold, like nowhere you had ever seen.
 
 There were towers with shining roofs, and bending rivers that led between courtyards, and all these [bridges]&lt;bridges|.
