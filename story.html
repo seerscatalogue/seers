@@ -364,6 +364,7 @@ tw-icon.undo, tw-icon.redo {
 
 
 
+
 </style><script role="script" id="twine-user-script" type="text/twine-javascript">//Invoke scripts like this:
 //<img src="data:image/gif;base64,R0lGODlhAQABAAAAACwAAAAAAQABAAA=" style="display: none;" onload="holo.setBg(0.8); holo.setTextDark();">
 
@@ -459,7 +460,7 @@ window.vars = {
 };
 
 $(function () {
-
+	
 	////////Begin mag script
 $.getScript("js/createjs-2015.11.26.min.js", function(data, textStatus, jqxhr) {
 $.getScript("js/perlin.js", function(data, textStatus, jqxhr) {
@@ -894,7 +895,7 @@ credits: new Howl({
 			window.sounds[k].once('load', function() {
 				toLoad--;
 				if(toLoad === 0) {
-					window.harlowe.goToPassage('Start');
+					window.harlowe.goToPassage('ResumeOrRestart');
 				}
 			});
 		});
@@ -1236,7 +1237,8 @@ window.magData = /** start copy paste */ {
 
 
 
-</script><tw-passagedata pid="1" name="Start" tags="" position="460,255">&lt;script&gt;holo.setStyle(&#39;space1&#39;); sounds.thememusic.play(); sounds.thememusic.fade(0, 1, 1000);&lt;/script&gt;You&#39;re in a room with a window,
+
+</script><tw-passagedata pid="1" name="Start" tags="" position="460,255">(save-game: &quot;Fresh&quot;)&lt;script&gt;holo.setStyle(&#39;space1&#39;); sounds.thememusic.play(); sounds.thememusic.fade(0, 1, 1000);&lt;/script&gt;You&#39;re in a room with a window,
 and light is [streaming through the window]&lt;c2|(click: ?c2)[,
 like light reflected on water(link: &quot;.&quot;)[.
 And life feels limitless.]
@@ -1271,11 +1273,11 @@ When you were small you played with the [muskox]&lt;muskoxer| while the adults w
 (click: ?muskoxer)[You held it and helped it to gambol across the thick burgundy carpet, the green velvet couch, under [[the light of Marius&#39;s lamps]].]
 
 </tw-passagedata>
-<tw-passagedata pid="7" name="you never understood" tags="" position="103,756">&lt;script&gt;holo.setStyle(&#39;space2&#39;);&lt;/script&gt;&lt;div class=&quot;aligner&quot;&gt;[&lt;img src=&quot;http://seerscatalogue.github.io/seers/images/pats_illustrations/seers_muskox.png&quot; class=&quot;aligned&quot;&gt;]&lt;muskox|&lt;/div&gt;
+<tw-passagedata pid="7" name="you never understood" tags="" position="103,756">(save-game: &quot;Save&quot;)&lt;script&gt;holo.setStyle(&#39;space2&#39;);&lt;/script&gt;&lt;div class=&quot;aligner&quot;&gt;[&lt;img src=&quot;http://seerscatalogue.github.io/seers/images/pats_illustrations/seers_muskox.png&quot; class=&quot;aligned&quot;&gt;]&lt;muskox|&lt;/div&gt;
 (click: ?muskox)[Marius had a stack of //Seers Catalogues// in his parlour, on the low teak table, beside the brass sculpture of a [[muskox]].]</tw-passagedata>
 <tw-passagedata pid="8" name="Continue" tags="" position="42,906">&lt;img src=&quot;http://seerscatalogue.github.io/seers/images/full_seers_circle_logo_cropped.png&quot; alt=&quot;The Seers Catalogue badge&quot; width=&quot;50%&quot;&gt;
 There is no table of contents. There is no masthead. The magazine never explains what is inside it or [[who compiled these pages]].</tw-passagedata>
-<tw-passagedata pid="9" name="when you asked" tags="" position="149,1337">&lt;script&gt;holo.setStyle(&#39;space2&#39;);&lt;/script&gt;When you asked Uncle Marius how he first heard about //The Seers Catalogue//, he smiled. He ran his hand over the marble of the bench, at the bus station, when you were sitting together.
+<tw-passagedata pid="9" name="when you asked" tags="" position="149,1339">&lt;script&gt;holo.setStyle(&#39;space2&#39;);&lt;/script&gt;When you asked Uncle Marius how he first heard about //The Seers Catalogue//, he smiled. He ran his hand over the marble of the bench, at the bus station, when you were sitting together.
 
 &quot;From a friend,&quot; [[he said-&gt;cheque]].</tw-passagedata>
 <tw-passagedata pid="10" name="these pages2" tags="" position="16,1281">In every issue, instead of a masthead or table of contents, the same painted [portrait]&lt;portrait| always appears.
@@ -1464,6 +1466,7 @@ tw-story h5 {
 &lt;/style&gt;
 }</tw-passagedata>
 <tw-passagedata pid="18" name="inside back" tags="" position="1136,410">{
+(save-game: &quot;Save&quot;)
 &lt;script&gt;window.articleReadCount = 3; window.articleReadTime = 90000; holo.setStyle(&#39;space1&#39;); sounds.pageturn.play(); sounds.magazinetheme.fade(0.1, 0, 500); sounds.roomtone.play(); sounds.roomtone.fade(0, 2, 500);&lt;/script&gt;
 
 As you are flipping between pages, you find yourself staring curiously at the //The Seers Catalogue//&#39;s very last page, inside the cover. Something about the ink catches your eye, or else perhaps the [ink]&lt;ink| simply catches the light.
@@ -1651,7 +1654,7 @@ You wipe your eyes and pack some things and, outside, [get on a bicycle]&lt;vehi
   100% { opacity: 1; }
 }
 &lt;/style&gt;</tw-passagedata>
-<tw-passagedata pid="32" name="And you arrive at the address." tags="" position="1726,1868">&lt;script&gt;holo.setStyle(&#39;space3&#39;); sounds.thememusic.play(); sounds.thememusic.fade(0, 1, 1000);&lt;/script&gt;It&#39;s a square and [white-washed building]&lt;building|(click: ?building)[, [without a door]&lt;door|.
+<tw-passagedata pid="32" name="And you arrive at the address." tags="" position="1726,1868">(save-game: &quot;Save&quot;)&lt;script&gt;holo.setStyle(&#39;space3&#39;); sounds.thememusic.play(); sounds.thememusic.fade(0, 1, 1000);&lt;/script&gt;It&#39;s a square and [white-washed building]&lt;building|(click: ?building)[, [without a door]&lt;door|.
 
 (click: ?door)[This is bewildering. You stand at the end of the end of the front walk, between two hedges, and stare at the place on the wall [[where the door should sit]].
 ]]</tw-passagedata>
@@ -1865,7 +1868,7 @@ Now it hardly looks like an ivy house: the plants have grown and grown, thickeni
 (click: ?pound)[[You shiver.]&lt;shiver| (click: ?shiver)[[You look around.]&lt;around|
 (click: ?around)[&lt;span onclick=&quot;sounds.highnoise.play();&quot;&gt;
 [[You go after her.-&gt;greenery]]&lt;/span&gt;]]]]]]</tw-passagedata>
-<tw-passagedata pid="56" name="threshold" tags="" position="2991,333">&lt;script&gt;sounds.gallerymusic.play(); sounds.gallerymusic.fade(0, 0.1, 500); holo.setStyle(&#39;space5&#39;);&lt;/script&gt;And then you are in an art gallery. It&#39;s such a swift change from the fae to the mundane: in the lobby there&#39;s no piercing birdsong, no weird wind blows. It is a small room with a glossy white floor and a tidy white counter, a hanging sign that reads //Ivy House Gallery// in vivid emerald letters. There is [someone behind the desk]&lt;attendant| - a slight figure in a pale suit, an electric pink scarf around their neck. They wear a single wire-frame earring - it is a perfect measured square.
+<tw-passagedata pid="56" name="threshold" tags="" position="2991,333">(save-game: &quot;Save&quot;)&lt;script&gt;sounds.gallerymusic.play(); sounds.gallerymusic.fade(0, 0.1, 500); holo.setStyle(&#39;space5&#39;);&lt;/script&gt;And then you are in an art gallery. It&#39;s such a swift change from the fae to the mundane: in the lobby there&#39;s no piercing birdsong, no weird wind blows. It is a small room with a glossy white floor and a tidy white counter, a hanging sign that reads //Ivy House Gallery// in vivid emerald letters. There is [someone behind the desk]&lt;attendant| - a slight figure in a pale suit, an electric pink scarf around their neck. They wear a single wire-frame earring - it is a perfect measured square.
 
 (click: ?attendant)[When you and Mi-o appear, the attendant looks up. [[&quot;Welcome to the Ivy House,&quot; they say.-&gt;welcomeivy]]]</tw-passagedata>
 <tw-passagedata pid="57" name="Let me know if you need anything." tags="" position="2991,584">[[&quot;Great,&quot; you say.-&gt;great]]</tw-passagedata>
@@ -2187,7 +2190,7 @@ And life feels limitless.]
 
 &quot;Yes. Very dangerous,&quot; you say, [[and you are thinking of the attendant&#39;s flowy, diaphonous scarf]].
 </tw-passagedata>
-<tw-passagedata pid="87" name="and you are thinking of the attendant&#39;s flowy, diaphonous scarf" tags="" position="4021,617">&lt;script&gt;sounds.gallerymusic.stop(); holo.setStyle(&#39;space8&#39;);&lt;/script&gt;When you get to the street the weather has all changed. Thunderclouds fill the sky, and the Ivy House is silhouetted in the black afternoon. It looks like a wakeful, hostile creature.
+<tw-passagedata pid="87" name="and you are thinking of the attendant&#39;s flowy, diaphonous scarf" tags="" position="4021,617">(save-game: &quot;Save&quot;)&lt;script&gt;sounds.gallerymusic.stop(); holo.setStyle(&#39;space8&#39;);&lt;/script&gt;When you get to the street the weather has all changed. Thunderclouds fill the sky, and the Ivy House is silhouetted in the black afternoon. It looks like a wakeful, hostile creature.
 
 [&quot;Where&#39;s the car?&quot;]&lt;car| you say.
 
@@ -2524,7 +2527,7 @@ At the bottom of the stairs the passage widens into [[a spacious hall.-&gt;a spa
 (click-replace: ?curtain2)[[&lt;img src=&quot;http://seerscatalogue.github.io/seers/images/curtainshapes/curtainshapes0002.png&quot; width=&quot;100%&quot;&gt;]&lt;curtain3|]
 
 (click: ?curtain3)[(goto: &quot;eyeseyes&quot;)]</tw-passagedata>
-<tw-passagedata pid="128" name="Keep going down the hall." tags="" position="4507,7">&lt;script&gt;holo.setStyle(&#39;space6ground&#39;);&lt;/script&gt;You turn the corner into a new hall where every surface is covered in ceramic tile. Each of the white tiles is hand-painted in a plain style, with only the necessary strokes to convey meaning; there are [images]&lt;images| [of farmers, poppy fields, castles with turrets.]&lt;turrets|
+<tw-passagedata pid="128" name="Keep going down the hall." tags="" position="4507,9">(save-game: &quot;Save&quot;)&lt;script&gt;holo.setStyle(&#39;space6ground&#39;);&lt;/script&gt;You turn the corner into a new hall where every surface is covered in ceramic tile. Each of the white tiles is hand-painted in a plain style, with only the necessary strokes to convey meaning; there are [images]&lt;images| [of farmers, poppy fields, castles with turrets.]&lt;turrets|
 
 Light [emanates]&lt;emanates| from a hidden space where the walls meet the ceiling. It gives the hallway an uncertain ambiance: like a cave or a spaceship, like a corridor in a secluded riad.
 {
@@ -3183,7 +3186,7 @@ You&#39;re doing it because Uncle Marius said, &quot;It has led me down some [st
 
 [[//A LIST OF EVERY WEBSITE//-&gt;thenyousee]]
 ]</tw-passagedata>
-<tw-passagedata pid="198" name="city" tags="" position="1999,761">&quot;But I already live in $yourCity,&quot; you say, &quot;we&#39;re here |rightnow&gt;[right now].&quot;
+<tw-passagedata pid="198" name="city" tags="" position="1999,761">(save-game: &quot;Save&quot;)&quot;But I already live in $yourCity,&quot; you say, &quot;we&#39;re here |rightnow&gt;[right now].&quot;
 
 (click: ?rightnow)[Mi-o takes the tickets from Mr. Bud.
 
@@ -3843,6 +3846,14 @@ $yourPostalcode
 &lt;/style&gt;
 
 &lt;div class=&#39;aligner&#39;&gt;&lt;div class=&#39;uil-rolling-css&#39; style=&#39;transform:scale(0.98);&#39;&gt;&lt;div&gt;&lt;div&gt;&lt;/div&gt;&lt;div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;</tw-passagedata>
+<tw-passagedata pid="263" name="ResumeOrRestart" tags="" position="606,84">(if: (saved-games:) contains &quot;Save&quot;)[
+(link:&quot;Resume from where you left off.&quot;)[(load-game: &quot;Save&quot;)]
+
+(link:&quot;Start over from the beginning.&quot;)[(load-game: &quot;Fresh&quot;)]
+]
+(else:)[
+(go-to: &quot;Start&quot;)
+]</tw-passagedata>
 </tw-storydata>
 
 
