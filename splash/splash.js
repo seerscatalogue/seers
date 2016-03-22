@@ -359,6 +359,31 @@ function testSupportedBrowser(browserName) {
   return supported;
 }
 
+function testSupportedBrowserVersion(browserName, version) {
+  var chromelikes = ['Chrome', 'Chromium'];
+  var fflikes = ['Firefox', 'IceCat', 'Iceweasel'];
+
+  var supported = false;
+
+  chromelikes.forEach(function(b) {
+    if(browserName.substr(0, b.length) === b && version >= 43) {
+      supported = true;
+    }
+  });
+
+  fflikes.forEach(function(b) {
+    if(browserName.substr(0, b.length) === b && version >= 38) {
+      supported = true;
+    }
+  });
+
+  if(browserName.substr(0, 'Opera'.length) === 'Opera' && version >= 30) {
+    supported = true;
+  }
+
+  return supported;
+}
+
 var infobox;
 function clearWarning() { //eslint-disable-line
   infobox.remove();
@@ -369,8 +394,9 @@ var result = UAParser();
 
 var isSupportedDeviceType = testSupportedDeviceType(result.device.type || '');
 var isSupportedBrowser = !(result.os.name === 'iOS') && testSupportedBrowser(result.browser.name || '');
+var isSupportedBrowserVersion = isSupportedBrowser && testSupportedBrowserVersion(result.browser.name, parseInt(result.browser.version, 10));
 
-if(isSupportedBrowser && isSupportedDeviceType) {
+if(isSupportedBrowser && isSupportedDeviceType && isSupportedBrowserVersion) {
   document.addEventListener("DOMContentLoaded", initLoader);
 }
 else {
@@ -401,6 +427,15 @@ else {
 
       info = lines.join(' ');
     }
+    else if(!isSupportedBrowserVersion) {
+      info = [
+        "<div style='text-align: center;'><img src='images/pats_illustrations/seers_key.png' style='width: 200px;'/></div>",
+        "<p>Unfortunately, <i>The Seers Catalogue</i> needs a newer version of your browser to work.</p>",
+        "<p>Your current version can't understand all its mysteries.</p>",
+        "<p>Try using a more recent version of <a href='https://www.google.com/chrome/browser/index.html'>Chrome</a> or",
+        "<a href='https://www.mozilla.org/firefox/'>Firefox</a> on desktop. (It's worth the journey.)</p>"
+      ].join(' ');
+    }
     else if(!isSupportedDeviceType) {
       info = [
         "<div style='text-align: center;'><img src='images/full_seers_circle_logo_cropped.png' style='width: 200px;'/></div>",
@@ -412,6 +447,7 @@ else {
         "<p><br /><small>If you're sure you'd like to proceed anyway, <a href='#' onclick='clearWarning()'>click here</a>.</small></p>"
       ].join(' ');
     }
+
 
     infobox.innerHTML = info;
     container.appendChild(infobox);
