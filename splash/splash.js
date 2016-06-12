@@ -35,7 +35,7 @@ function initLoader() {
   canvas.height = 500;
 
   var wordmark = document.createElement('img');
-  wordmark.src = 'images/commissioned_wordmark.png';
+  wordmark.src = 'images/commissioned_wordmark2.png';
 
   document.querySelector('.parent').style.minHeight = '604px';
 

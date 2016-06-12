@@ -73,6 +73,11 @@ font-style: italic;
 	font-size: 120%;
 }
 
+.vanilla-modal .modal .logo {
+  max-width: 550px;
+  width: 100%;
+}
+
 
 .vanilla-modal .modal:before {
   display: inline-block;
